@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--bootstrap css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Contacto</title>
+</head>
+
+<body>
+  <!--cabecera-->
+  <header class="cabecera sticky-top">
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <img src="./img sitio web/productos/logo elixir.jpg" alt="logotipo elixir" class="cabecera__logo">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+            <li class="nav-item">
+              <a class="nav-link active text-white fs-3 text-center cabecera__vinculo" aria-current="page" href="inicio.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="Elixir.html">Elixir</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="productos.html">Productos</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="Distribuidores.html">Distribuidores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="contacto.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <article>
+      <p>
+        Tu opinion es muy importante para nosotros.
+      </p>
+      <p>
+
+        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multicollapseExample" aria-expanded="false" aria-controls="multicollapseExample">
+        Contacto Elixir
+      </button>
+        <div class="collapse multi-collapse bg-transparent" id="multicollapseExample">
+          <div class="card card-body bg-transparent">
+            Elixir <br>Mail: Correo_elixir@servelixir.com <br>Tel: 55-38-03-90-79
+          </div>
+        </div>
+      </p>
+    </article>
+    <article>
+      <form action="" method="post" class="formulario">
+        <fieldset class="formulario__contorno">
+          <legend class="formulario__titulo">
+            Tus datos
+          </legend>
+          <label for="nombre" class="formulario__campos">
+          Nombre
+        </label>
+          <input type="text" name="nombre" placeholder="Nombre completo" required>
+          <label for="mail" class="formulario__campos">
+          Correo
+        </label>
+          <input type="email" name="mail" placeholder="Correo electronico" required>
+          <label for="telefono" class="formulario__campos">
+          Telefono
+        </label>
+          <input type="tel" placeholder="xx-xx-xx-xx-xx" name="telefono" required>
+          <h5 class="formulario__subtitulo">
+            Enivanos tu consulta
+          </h5>
+          <textarea name="mensaje" id="mensaje" cols="30" rows="10">
+        </textarea required><br>
+          <input class="boton" type="submit" value="Enviar">
+          <input class="boton" type="reset" value="Borrar" >
+      </fieldset>
+    </form>
+
+  </article>
+  </section>
+  <footer class="footer ">
+    <h4 class="footer__texto ">
+      2021, MEZCAL ELIXIR, DERECHOS RESERVADOS
+    </h4>
+    <div class="footer__redes ">
+      <a href="https://www.facebook.com/Elespirituelixir " target="_blank " rel="noopener noreferrer ">
+        <img class="footer__redes--icono footer__redes--icono__f " src="/img sitio web/iconos/facebook icono.svg" alt="icono de facebook ">
+      </a>
+      <a href="https://www.instagram.com/elixir_mezc/?hl=es " target="_blank " rel="noopener noreferrer ">
+        <img class="footer__redes--icono footer__redes--icono__i " src="/img sitio web/iconos/instagram icono.svg" alt="icono de instagram ">
+      </a>
+      <img class="footer__redes--icono footer__redes--icono__w " src="/img sitio web/iconos/whatsapp icono.svg" alt="icono de whatsapp ">
+    </div>
+  </footer>
+
+  <!--bootstrp js-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
