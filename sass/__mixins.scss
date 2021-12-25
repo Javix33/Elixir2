@@ -1,0 +1,17 @@
+@mixin bgblur {
+  background-color: 225, 255, 255, 07;
+  backdrop-filter: blur(10px);
+}
+
+@mixin bordes {
+  border: 2px;
+  border-radius: 20px;
+  border-color: white;
+  border-style: solid;
+}
+
+@mixin bgimg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
