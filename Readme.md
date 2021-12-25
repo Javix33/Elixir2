@@ -1,0 +1,1 @@
+reinicio del proyecto orientado al aspecto visual
