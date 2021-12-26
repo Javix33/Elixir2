@@ -15,3 +15,10 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+@mixin bordesChecker {
+  border: 2px;
+  border-radius: 20px;
+  border-color: black;
+  border-style: solid;
+}
