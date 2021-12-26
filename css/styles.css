@@ -1,10 +1,33 @@
+@keyframes animacion__redes {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 * {
   padding: 0;
   margin: 0;
 }
 
+.textos, .btn, .footer__vinculo, .footer__texto, .cabecera__vinculo, .cabecera {
+  font-family: "Roboto", sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
 .body {
-  background-color: aqua;
+  background-color: gray;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,6 +70,232 @@
   font-size: 4vw;
   display: block;
   text-decoration: none;
+}
+
+.cabecera {
+  width: 100%;
+  background-color: 225, 255, 255, 7;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid white;
+}
+.cabecera__logo {
+  height: 8vw;
+  border-radius: 10px;
+  border: 2px solid white;
+  margin-top: 0.5%;
+  margin-left: 2%;
+}
+.cabecera__vinculo:focus {
+  transform: scale(1);
+  cursor: progress;
+}
+@media screen and (min-width: 992px) {
+  .cabecera__vinculo:hover {
+    transform: scale(1.1);
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+}
+.cabecera .navbar-toggler-icon {
+  background-image: url(../img_sitio_web/iconos/menu.png);
+}
+
+.footer {
+  background-color: 225, 255, 255, 7;
+  backdrop-filter: blur(10px);
+  height: 14vw;
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 2px solid white;
+  display: grid;
+  grid-template-areas: ". . . redes" "texto texto texto redes" ". . . redes";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 5vw;
+}
+.footer__texto {
+  font-size: 2vw;
+  font-weight: 900;
+  grid-area: texto;
+  margin-left: 2vw;
+}
+.footer__redes {
+  grid-area: redes;
+  margin-top: 1vw;
+  margin-left: 9vw;
+}
+.footer__redes--icono {
+  height: 4vw;
+  width: 4vw;
+  display: block;
+  animation-name: animacion__redes;
+  animation-duration: 4s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+}
+.footer__redes--icono__f {
+  margin-left: -9vw;
+}
+.footer__redes--icono__i {
+  margin-left: -4vw;
+}
+.footer__redes--icono__w {
+  margin-left: 1vw;
+}
+.footer__redes--icono:hover {
+  animation-play-state: paused;
+  transform: scale(1.2);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.footer__redes--icono:focus {
+  transform: scale(1);
+  cursor: progress;
+}
+
+.main {
+  margin: 3%;
+}
+
+.mezcal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mezcal__titulo {
+  font-family: "Roboto", sans-serif;
+  font-size: 4vw;
+  color: white;
+  text-align: center;
+}
+.mezcal__container {
+  font-family: "Roboto", sans-serif;
+  font-size: 3vw;
+  color: white;
+  display: inline;
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+}
+.mezcal__container__img--fondo {
+  margin-top: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px;
+  border-radius: 20px;
+  border-color: white;
+  border-style: solid;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 30%;
+  height: 15vw;
+  background-image: url(../img_sitio_web/shot_mezcal.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.mezcal__container__img--fondo__subtitulo {
+  font-family: "Roboto", sans-serif;
+  font-size: 3vw;
+  color: white;
+  background-color: 225, 255, 255, 7;
+  backdrop-filter: blur(10px);
+  align-self: center;
+}
+.mezcal__container__respuesta {
+  background-color: transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 2vw;
+  color: white;
+  display: inline;
+  margin: 2%;
+}
+.mezcal__definicion {
+  list-style-type: upper-roman;
+  font-family: "Roboto", sans-serif;
+  font-size: 2vw;
+  color: white;
+}
+
+.btn {
+  height: fit-content;
+  font-size: 2vw;
+  margin-bottom: 1vw;
+  border: 2px;
+  border-radius: 20px;
+  border-color: white;
+  border-style: solid;
+  background-color: 225, 255, 255, 7;
+  backdrop-filter: blur(10px);
+}
+
+.card {
+  border: none;
+}
+
+.procesos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.procesos__titulo {
+  font-size: 4vw;
+  color: white;
+  text-align: center;
+}
+.procesos__card, .procesos__card--derecha {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+}
+.procesos__card--derecha {
+  flex-direction: row-reverse;
+}
+.procesos__img {
+  width: 25vw;
+  height: 25vw;
+  border: 2px;
+  border-radius: 20px;
+  border-color: white;
+  border-style: solid;
+  display: inline;
+}
+.procesos__info {
+  margin: 5%;
+  width: 50%;
+  display: inline;
+}
+.procesos__info__titulo {
+  text-align: center;
+  font-size: 3vw;
+  color: white;
+  font-family: "Roboto", sans-serif;
+}
+.procesos__info__texto {
+  font-family: "Roboto", sans-serif;
+  font-size: 2vw;
+  color: white;
+}
+.procesos__info__texto__mas, .procesos__info__texto__mas--lista {
+  font-family: "Roboto", sans-serif;
+  font-size: 2vw;
+  color: white;
+}
+.procesos__info__texto__mas--lista {
+  list-style-type: circle;
+}
+.procesos__mapa {
+  margin-top: 3vw;
+  width: 90vw;
+  border: 2px;
+  border-radius: 20px;
+  border-color: white;
+  border-style: solid;
 }
 
 /*# sourceMappingURL=styles.css.map */

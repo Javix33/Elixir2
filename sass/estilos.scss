@@ -1,52 +1,281 @@
-          //imports//
-          @import "__variables";
-          @import "__mixins";
-          * {
-            padding: 0;
-            margin: 0;
-          }
-          
-          //pagina de aviso//
-          .body {
-            background-color: aqua;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          
-          .edad {
-            background-color: black;
-            height: 50vh;
-            width: 50vw;
-            margin: 25vh;
-            @include bgblur;
-            @include bordes;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            &__titulo {
-              background-color: blue;
-              margin-top: 10%;
-              font-size: $sizeTitulos;
-              color: $colorTextos;
-              text-align: center;
-            }
-            &__botonera {
-              height: fit-content;
-              width: 50%;
-              margin-top: 10%;
-              background-color: cadetblue;
-              align-self: center;
-              display: flex;
-              flex-direction: row;
-              justify-content: space-between;
-            }
-            &__boton {
-              color: $colorTextos;
-              font-size: $sizeTitulos;
-              display: block;
-              text-decoration: none;
-            }
-          }
-          
-          //pagina de inicio//
+ //imports//
+ @import "__variables";
+ @import "__mixins";
+ @import "__animaciones";
+ * {
+   padding: 0;
+   margin: 0;
+ }
+ 
+ .textos {
+   font-family: $roboto;
+   color: $colorTextos;
+   text-decoration: none;
+ }
+ 
+ //pagina de aviso//
+ .body {
+   background-color: gray;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+ }
+ 
+ .edad {
+   background-color: black;
+   height: 50vh;
+   width: 50vw;
+   margin: 25vh;
+   @include bgblur;
+   @include bordes;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   &__titulo {
+     background-color: blue;
+     margin-top: 10%;
+     font-size: $sizeTitulos;
+     color: $colorTextos;
+     text-align: center;
+   }
+   &__botonera {
+     height: fit-content;
+     width: 50%;
+     margin-top: 10%;
+     background-color: cadetblue;
+     align-self: center;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+   }
+   &__boton {
+     color: $colorTextos;
+     font-size: $sizeTitulos;
+     display: block;
+     text-decoration: none;
+   }
+ }
+ 
+ //header// 
+ .cabecera {
+   width: 100%;
+   @include bgblur();
+   @extend .textos;
+   border-bottom: $bordeBlanco;
+   &__logo {
+     height: 8vw;
+     border-radius: $bordeRedondeado;
+     border: $bordeBlanco;
+     margin-top: 0.5%;
+     margin-left: 2%;
+   }
+   &__vinculo {
+     @extend .textos;
+     &:focus {
+       transform: scale(1);
+       cursor: progress;
+     }
+     @media screen and (min-width:992px) {
+       &:hover {
+         transform: scale(1.1);
+         transition: all .5s;
+         cursor: pointer;
+       }
+     }
+   }
+   .navbar-toggler {
+     &-icon {
+       background-image: url(../img_sitio_web/iconos/menu.png);
+     }
+   }
+ }
+ 
+ //footer// 
+ .footer {
+   @include bgblur();
+   height: 14vw;
+   width: 100%;
+   border-top-left-radius: $bordeRedondeado;
+   border-top-right-radius: $bordeRedondeado;
+   border-top: $bordeBlanco;
+   display: grid;
+   grid-template-areas: ". . . redes" "texto texto texto redes" ". . . redes";
+   grid-template-columns: repeat(4, 1fr);
+   grid-template-rows: repeat(3, 1fr);
+   grid-gap: 5vw;
+   &__texto {
+     @extend .textos;
+     font-size: $sizeTextos;
+     font-weight: 900;
+     grid-area: texto;
+     margin-left: 2vw;
+   }
+   &__vinculo {
+     @extend .textos;
+   }
+   &__redes {
+     grid-area: redes;
+     margin-top: 1vw;
+     margin-left: 9vw;
+   }
+   &__redes--icono {
+     height: $heigthIconos;
+     width: $widthIconos;
+     display: block;
+     animation-name: animacion__redes;
+     animation-duration: 4s;
+     animation-delay: 2s;
+     animation-iteration-count: infinite;
+     &__f {
+       margin-left: -9vw;
+     }
+     &__i {
+       margin-left: -4vw;
+     }
+     &__w {
+       margin-left: 1vw;
+     }
+     &:hover {
+       animation-play-state: paused;
+       transform: scale(1.2);
+       transition: all .5s;
+       cursor: pointer;
+     }
+     &:focus {
+       transform: scale(1);
+       cursor: progress;
+     }
+   }
+ }
+ 
+ //pagina de inicio//
+ .main {
+   margin: 3%;
+ }
+ 
+ .mezcal {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   &__titulo {
+     font-family: $roboto;
+     font-size: $sizeTitulos;
+     color: $colorTextos;
+     text-align: center;
+   }
+   &__container {
+     font-family: $roboto;
+     font-size: $sizeSubtitulos;
+     color: $colorTextos;
+     display: inline;
+     display: flex;
+     flex-direction: row;
+     justify-items: center;
+     align-items: center;
+     &__img--fondo {
+       margin-top: 2vw;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       @include bordes();
+       @include bgimg();
+       width: 30%;
+       height: 15vw;
+       background-image: url(../img_sitio_web/shot_mezcal.jpg);
+       background-position: center;
+       background-size: cover;
+       background-repeat: no-repeat;
+       &__subtitulo {
+         font-family: $roboto;
+         font-size: $sizeSubtitulos;
+         color: $colorTextos;
+         @include bgblur();
+         align-self: center;
+       }
+     }
+     &__respuesta {
+       background-color: transparent;
+       font-family: $roboto;
+       font-size: $sizeTextos;
+       color: $colorTextos;
+       display: inline;
+       margin: 2%;
+     }
+   }
+   &__definicion {
+     list-style-type: upper-roman;
+     font-family: $roboto;
+     font-size: $sizeTextos;
+     color: $colorTextos;
+   }
+ }
+ 
+ .btn {
+   @extend .textos;
+   height: fit-content;
+   font-size: $sizeTextos;
+   margin-bottom: 1vw;
+   @include bordes();
+   @include bgblur();
+ }
+ 
+ .card {
+   border: none;
+ }
+ 
+ .procesos {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   &__titulo {
+     font-size: $sizeTitulos;
+     color: $colorTextos;
+     text-align: center;
+   }
+   &__card {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-items: center;
+   }
+   &__card--derecha {
+     @extend .procesos__card;
+     flex-direction: row-reverse;
+   }
+   &__img {
+     width: 25vw;
+     height: 25vw;
+     @include bordes;
+     display: inline;
+   }
+   &__info {
+     margin: 5%;
+     width: 50%;
+     display: inline;
+     &__titulo {
+       text-align: center;
+       font-size: $sizeSubtitulos;
+       color: $colorTextos;
+       font-family: $roboto;
+     }
+     &__texto {
+       font-family: $roboto;
+       font-size: $sizeTextos;
+       color: $colorTextos;
+       &__mas {
+         font-family: $roboto;
+         font-size: $sizeTextos;
+         color: $colorTextos;
+       }
+       &__mas--lista {
+         @extend .procesos__info__texto__mas;
+         list-style-type: circle;
+       }
+     }
+   }
+   &__mapa {
+     margin-top: 3vw;
+     width: 90vw;
+     @include bordes;
+   }
+ }
