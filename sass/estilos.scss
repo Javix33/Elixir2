@@ -51,6 +51,7 @@
     @media screen and (max-width: 991px) {
       border: none;
       height: fit-content;
+      color: $textoChecker;
     }
   }
   &__botonera {
@@ -75,6 +76,7 @@
     @media screen and(max-width: 991px) {
       border: none;
       height: fit-content;
+      color: $textoChecker;
     }
   }
 }
