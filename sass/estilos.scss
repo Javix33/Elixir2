@@ -37,6 +37,10 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  @media screen and(orientation: landscape) {
+    height: 40vw;
+    width: 50vw;
+  }
   @media screen and(max-width: 991px) {
     padding-top: 13vh;
   }

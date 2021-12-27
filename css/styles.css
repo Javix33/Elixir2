@@ -55,6 +55,12 @@
   background-size: cover;
   background-position: center;
 }
+@media screen and (orientation: landscape) {
+  .edad {
+    height: 40vw;
+    width: 50vw;
+  }
+}
 @media screen and (max-width: 991px) {
   .edad {
     padding-top: 13vh;
