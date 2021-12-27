@@ -20,6 +20,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and(max-width: 991px) {
+    background-size: 100%;
+  }
 }
 
 .edad {
@@ -34,6 +37,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  @media screen and(max-width: 991px) {
+    padding-top: 13vh;
+  }
   &__titulo {
     height: 10vh;
     @include bgblur;
@@ -42,6 +48,10 @@
     font-size: $sizeTitulos;
     color: $textoChecker;
     text-align: center;
+    @media screen and (max-width: 991px) {
+      border: none;
+      height: fit-content;
+    }
   }
   &__botonera {
     height: fit-content;
@@ -62,6 +72,10 @@
     font-size: $sizeTitulos;
     display: block;
     text-decoration: none;
+    @media screen and(max-width: 991px) {
+      border: none;
+      height: fit-content;
+    }
   }
 }
 
@@ -128,6 +142,9 @@
     margin-left: 9vw;
   }
   &__redes--icono {
+    border-radius: 20px;
+    @include bordes;
+    background-color: white;
     height: $heigthIconos;
     width: $widthIconos;
     display: block;
@@ -154,6 +171,20 @@
       transform: scale(1);
       cursor: progress;
     }
+  }
+}
+
+.footer--contacto {
+  @media screen and(max-width: 492px) {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.footer--distro {
+  @media screen and(max-width: 991px) {
+    position: absolute;
+    bottom: 0;
   }
 }
 
@@ -291,6 +322,7 @@
 
 //pagina elixir// 
 .elixir {
+  min-height: $heightFooter;
   margin-top: 3vh;
   display: flex;
   flex-direction: column;
@@ -321,6 +353,7 @@
 
 //pagina productos// 
 .productos {
+  min-height: $heightFooter;
   margin: 3vw;
   display: flex;
   flex-direction: column;
@@ -369,7 +402,6 @@
 //pagina distribuidores// 
 .distros {
   padding-top: 8vw;
-  min-height: $heightFooter;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -400,6 +432,10 @@
       height: 40vw;
       margin-top: 3vw;
       margin-bottom: 3vw;
+      @media screen and(max-width: 991px) {
+        width: 50vw;
+        height: 40vh;
+      }
     }
   }
 }
