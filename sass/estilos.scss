@@ -41,18 +41,14 @@
     padding-top: 13vh;
   }
   &__titulo {
-    height: 10vh;
     @include bgblur;
-    @include bordesChecker;
+    border-radius: 20px;
+    border: none;
+    height: fit-content;
     margin-top: 10%;
     font-size: $sizeTitulos;
     color: $textoChecker;
     text-align: center;
-    @media screen and (max-width: 991px) {
-      border: none;
-      height: fit-content;
-      color: $textoChecker;
-    }
   }
   &__botonera {
     height: fit-content;
@@ -65,19 +61,15 @@
   }
   &__boton {
     text-align: center;
-    height: 10vh;
-    width: 6vw;
+    width: 8vw;
     @include bgblur;
-    @include bordesChecker;
+    border: none;
+    border-radius: 25px;
+    height: fit-content;
     color: $textoChecker;
     font-size: $sizeTitulos;
     display: block;
     text-decoration: none;
-    @media screen and(max-width: 991px) {
-      border: none;
-      height: fit-content;
-      color: $textoChecker;
-    }
   }
 }
 
@@ -135,9 +127,6 @@
     grid-area: texto;
     margin-left: 2vw;
   }
-  &__vinculo {
-    @extend .textos;
-  }
   &__redes {
     grid-area: redes;
     margin-top: 1vw;
@@ -154,6 +143,9 @@
     animation-duration: 4s;
     animation-delay: 2s;
     animation-iteration-count: infinite;
+    @media screen and(max-width: 991px) {
+      z-index: 10;
+    }
     &__f {
       margin-left: -9vw;
     }
@@ -233,6 +225,7 @@
         color: $colorTextos;
         @include bgblur();
         align-self: center;
+        text-align: center;
       }
     }
     &__respuesta {
@@ -242,6 +235,7 @@
       color: $colorTextos;
       display: inline;
       margin: 2%;
+      text-align: justify;
     }
   }
   &__definicion {
@@ -249,6 +243,7 @@
     font-family: $roboto;
     font-size: $sizeTextos;
     color: $colorTextos;
+    text-align: justify;
   }
 }
 
@@ -270,6 +265,7 @@
   flex-direction: column;
   align-items: center;
   &__titulo {
+    font-family: $roboto;
     font-size: $sizeTitulos;
     color: $colorTextos;
     text-align: center;
@@ -304,10 +300,12 @@
       font-family: $roboto;
       font-size: $sizeTextos;
       color: $colorTextos;
+      text-align: justify;
       &__mas {
         font-family: $roboto;
         font-size: $sizeTextos;
         color: $colorTextos;
+        text-align: justify;
       }
       &__mas--lista {
         @extend .procesos__info__texto__mas;
@@ -318,6 +316,7 @@
   &__mapa {
     margin-top: 3vw;
     width: 90vw;
+    height: auto;
     @include bordes;
   }
 }
@@ -333,6 +332,7 @@
     font-family: $roboto;
     font-size: $sizeTitulos;
     color: $colorTextos;
+    text-align: center;
   }
   &__contenido {
     margin: 3vw;
@@ -343,6 +343,7 @@
       font-family: $roboto;
       font-size: $sizeSubtitulos;
       color: $colorTextos;
+      text-align: center;
     }
     &__texto {
       font-family: $roboto;
@@ -363,6 +364,7 @@
   &__titulo {
     @extend .textos;
     font-size: $sizeTitulos;
+    text-align: center;
   }
   &__texto {
     @extend .textos;
@@ -378,6 +380,7 @@
     &__titulo {
       @extend .textos;
       font-size: $sizeSubtitulos;
+      text-align: center;
     }
     &__info {
       display: flex;
@@ -418,6 +421,7 @@
     &__titulo {
       @extend .textos;
       font-size: $sizeTitulos;
+      text-align: center;
     }
     &__texto {
       @extend .textos;
@@ -453,6 +457,8 @@
     flex-direction: column;
     align-items: center;
     &__texto {
+      margin-left: 3vw;
+      margin-right: 3vw;
       @extend .textos;
       font-size: $sizeTitulos;
     }
@@ -473,7 +479,7 @@
           align-self: center;
         }
         &__titulo {
-          font-size: $sizeTextos;
+          font-size: $sizeSubtitulos;
           font-weight: 500;
         }
       }

@@ -20,7 +20,7 @@
   margin: 0;
 }
 
-.textos, .contacto__formulario .boton, .contacto__formulario__form, .contacto__elixir__texto, .distros__dir__texto, .distros__dir__titulo, .productos__card__info__texto, .productos__card__titulo, .productos__texto, .productos__titulo, .btn, .footer__vinculo, .footer__texto, .cabecera__vinculo, .cabecera {
+.textos, .contacto__formulario .boton, .contacto__formulario__form, .contacto__elixir__texto, .distros__dir__texto, .distros__dir__titulo, .productos__card__info__texto, .productos__card__titulo, .productos__texto, .productos__titulo, .btn, .footer__texto, .cabecera__vinculo, .cabecera {
   font-family: "Roboto", sans-serif;
   color: white;
   text-decoration: none;
@@ -61,24 +61,15 @@
   }
 }
 .edad__titulo {
-  height: 10vh;
   background-color: 225, 255, 255, 7;
   backdrop-filter: blur(10px);
-  border: 2px;
   border-radius: 20px;
-  border-color: black;
-  border-style: solid;
+  border: none;
+  height: fit-content;
   margin-top: 10%;
-  font-size: 4vw;
+  font-size: 5vw;
   color: black;
   text-align: center;
-}
-@media screen and (max-width: 991px) {
-  .edad__titulo {
-    border: none;
-    height: fit-content;
-    color: black;
-  }
 }
 .edad__botonera {
   height: fit-content;
@@ -91,25 +82,16 @@
 }
 .edad__boton {
   text-align: center;
-  height: 10vh;
-  width: 6vw;
+  width: 8vw;
   background-color: 225, 255, 255, 7;
   backdrop-filter: blur(10px);
-  border: 2px;
-  border-radius: 20px;
-  border-color: black;
-  border-style: solid;
+  border: none;
+  border-radius: 25px;
+  height: fit-content;
   color: black;
-  font-size: 4vw;
+  font-size: 5vw;
   display: block;
   text-decoration: none;
-}
-@media screen and (max-width: 991px) {
-  .edad__boton {
-    border: none;
-    height: fit-content;
-    color: black;
-  }
 }
 
 .cabecera {
@@ -155,7 +137,7 @@
   grid-gap: 5vw;
 }
 .footer__texto {
-  font-size: 2vw;
+  font-size: 3vw;
   font-weight: 900;
   grid-area: texto;
   margin-left: 2vw;
@@ -179,6 +161,11 @@
   animation-duration: 4s;
   animation-delay: 2s;
   animation-iteration-count: infinite;
+}
+@media screen and (max-width: 991px) {
+  .footer__redes--icono {
+    z-index: 10;
+  }
 }
 .footer__redes--icono__f {
   margin-left: -9vw;
@@ -225,13 +212,13 @@
 }
 .mezcal__titulo {
   font-family: "Roboto", sans-serif;
-  font-size: 4vw;
+  font-size: 5vw;
   color: white;
   text-align: center;
 }
 .mezcal__container {
   font-family: "Roboto", sans-serif;
-  font-size: 3vw;
+  font-size: 4vw;
   color: white;
   display: inline;
   display: flex;
@@ -260,30 +247,33 @@
 }
 .mezcal__container__img--fondo__subtitulo {
   font-family: "Roboto", sans-serif;
-  font-size: 3vw;
+  font-size: 4vw;
   color: white;
   background-color: 225, 255, 255, 7;
   backdrop-filter: blur(10px);
   align-self: center;
+  text-align: center;
 }
 .mezcal__container__respuesta {
   background-color: transparent;
   font-family: "Roboto", sans-serif;
-  font-size: 2vw;
+  font-size: 3vw;
   color: white;
   display: inline;
   margin: 2%;
+  text-align: justify;
 }
 .mezcal__definicion {
   list-style-type: upper-roman;
   font-family: "Roboto", sans-serif;
-  font-size: 2vw;
+  font-size: 3vw;
   color: white;
+  text-align: justify;
 }
 
 .btn {
   height: fit-content;
-  font-size: 2vw;
+  font-size: 3vw;
   margin-bottom: 1vw;
   border: 1px;
   border-radius: 20px;
@@ -303,7 +293,8 @@
   align-items: center;
 }
 .procesos__titulo {
-  font-size: 4vw;
+  font-family: "Roboto", sans-serif;
+  font-size: 5vw;
   color: white;
   text-align: center;
 }
@@ -332,19 +323,21 @@
 }
 .procesos__info__titulo {
   text-align: center;
-  font-size: 3vw;
+  font-size: 4vw;
   color: white;
   font-family: "Roboto", sans-serif;
 }
 .procesos__info__texto {
   font-family: "Roboto", sans-serif;
-  font-size: 2vw;
+  font-size: 3vw;
   color: white;
+  text-align: justify;
 }
 .procesos__info__texto__mas, .procesos__info__texto__mas--lista {
   font-family: "Roboto", sans-serif;
-  font-size: 2vw;
+  font-size: 3vw;
   color: white;
+  text-align: justify;
 }
 .procesos__info__texto__mas--lista {
   list-style-type: circle;
@@ -352,6 +345,7 @@
 .procesos__mapa {
   margin-top: 3vw;
   width: 90vw;
+  height: auto;
   border: 1px;
   border-radius: 20px;
   border-color: white;
@@ -367,8 +361,9 @@
 }
 .elixir__titulo {
   font-family: "Roboto", sans-serif;
-  font-size: 4vw;
+  font-size: 5vw;
   color: white;
+  text-align: center;
 }
 .elixir__contenido {
   margin: 3vw;
@@ -378,12 +373,13 @@
 }
 .elixir__contenido__titulo {
   font-family: "Roboto", sans-serif;
-  font-size: 3vw;
+  font-size: 4vw;
   color: white;
+  text-align: center;
 }
 .elixir__contenido__texto {
   font-family: "Roboto", sans-serif;
-  font-size: 2vw;
+  font-size: 3vw;
   color: white;
   text-align: center;
 }
@@ -396,10 +392,11 @@
   align-items: center;
 }
 .productos__titulo {
-  font-size: 4vw;
+  font-size: 5vw;
+  text-align: center;
 }
 .productos__texto {
-  font-size: 2vw;
+  font-size: 3vw;
   text-align: justify;
   margin-left: 5vw;
   margin-right: 5vw;
@@ -410,7 +407,8 @@
   align-items: center;
 }
 .productos__card__titulo {
-  font-size: 3vw;
+  font-size: 4vw;
+  text-align: center;
 }
 .productos__card__info {
   display: flex;
@@ -418,7 +416,7 @@
   align-items: center;
 }
 .productos__card__info__texto {
-  font-size: 2vw;
+  font-size: 3vw;
   text-align: justify;
   margin: 2vw 5vw;
 }
@@ -450,10 +448,11 @@
   align-self: flex-start;
 }
 .distros__dir__titulo {
-  font-size: 4vw;
+  font-size: 5vw;
+  text-align: center;
 }
 .distros__dir__texto {
-  font-size: 2vw;
+  font-size: 3vw;
   text-align: justify;
 }
 .distros__mapa {
@@ -489,10 +488,12 @@
   align-items: center;
 }
 .contacto__elixir__texto {
-  font-size: 4vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  font-size: 5vw;
 }
 .contacto__formulario__form {
-  font-size: 2vw;
+  font-size: 3vw;
   margin-left: 3%;
   display: inline;
   grid-area: formulario;
@@ -509,7 +510,7 @@
   }
 }
 .contacto__formulario__form__contorno__titulo {
-  font-size: 2vw;
+  font-size: 4vw;
   font-weight: 500;
 }
 .contacto__formulario__form__campos {
@@ -520,7 +521,7 @@
 .contacto__formulario__form__subtitulo {
   margin-top: 3%;
   margin-bottom: 3%;
-  font-size: 2vw;
+  font-size: 3vw;
   font-weight: 400;
 }
 .contacto__formulario .boton {
