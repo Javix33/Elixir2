@@ -7,121 +7,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--bootstrap css-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!--css propio-->
+  <link rel="stylesheet" href="../css/styles.css">
   <title>Productos</title>
 </head>
 
-<body>
+<body class="body">
   <!--cabecera-->
-  <header class="cabecera sticky-top">
+  <header class="sticky-top cabecera">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <img src="./img sitio web/productos/logo elixir.jpg" alt="logotipo elixir" class="cabecera__logo">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <img src="../img_sitio_web/productos/logo elixir.jpg " alt="logotipo elixir" class="cabecera__logo">
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon "></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
             <li class="nav-item">
-              <a class="nav-link active text-white fs-3 text-center cabecera__vinculo" aria-current="page" href="inicio.html">Inicio</a>
+              <a class="nav-link active text-white fs-3 text-center cabecera__vinculo" aria-current="page" href="inicio.html">
+                Inicio
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="Elixir.html">Elixir</a>
+              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="Elixir.html">
+                Elixir
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="productos.html">Productos</a>
+              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="productos.html">
+                Productos
+              </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="Distribuidores.html">Distribuidores</a>
+              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="Distribuidores.html">
+                Distribuidores
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="contacto.html">Contacto</a>
+              <a class="nav-link text-white fs-3 text-center cabecera__vinculo" href="contacto.html ">
+                Contacto
+              </a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
-  <section>
-    <article>
-      <h4>
+  <section class="productos">
+    <h4 class="productos__titulo">
+      PRODUCTOS
+    </h4>
+    <article class="productos__card">
+      <h4 class="productos__card__titulo">
         Mezcal espadín
       </h4>
-      <div>
-        <p>
+      <div class="productos__card__info">
+        <p class="productos__card__info__texto">
           Nuestro Mezcal Espadín, esta hecho 100% de agave angustifolia hawk, de la region de Miahutlan, Oaxaca.
           <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multicollapseExample" aria-expanded="false" aria-controls="multicollapseExample">
             Conocelo
           </button>
           <div class="collapse multi-collapse bg-transparent" id="multicollapseExample">
             <div class="card card-body bg-transparent">
-              Tiene una concentración alcoholica de 50°, por lo que puede resultar intimidante para quienes no habituan consumir Mezcal, sin embargo la manera en que se produce nos ofrece un sabor bien definido conservando perfectamente el sabor natural del agave con
-              notas ahumadas que lo realzan, ademas a pesar de su alta concentración alcoholica, es una bebida amable al paladar ya que no resulta irritante como algunos Mezcales producidos sin la pasion que nos caracteriza, pasion que podras comprender
-              una vez que ruebes el exquisito sabor de este destilado, 100% mexicano, 100% agave y 100% Elixir, "El Espiritú del MEZCAL"
+              <p class="productos__card__info__texto">
+                Tiene una concentración alcoholica de 50°, por lo que puede resultar intimidante para quienes no habituan consumir Mezcal, sin embargo la manera en que se produce nos ofrece un sabor bien definido conservando perfectamente el sabor natural del agave con
+                notas ahumadas que lo realzan, ademas a pesar de su alta concentración alcoholica, es una bebida amable al paladar ya que no resulta irritante como algunos Mezcales producidos sin la pasion que nos caracteriza, pasion que podras comprender
+                una vez que pruebes el exquisito sabor de este destilado, 100% mexicano, 100% agave y 100% Elixir, "El Espiritú del MEZCAL "
+              </p>
             </div>
           </div>
         </p>
-        <img src="/img sitio web/productos/mezcal-y-sal.jpg" alt="Mezcal espadin con sal de gusano">
+        <img class="productos__card__info__img " src="../img_sitio_web/productos/mezcal-y-sal.jpg " alt="Mezcal espadin con sal de gusano">
       </div>
     </article>
-    <article>
-      <h4>
-        Sabores
-      </h4>
-      <p>
-        Elixir es para todos, por lo que contamos tambien con 3 bebidas preparadas con mezcal espadin, las cuales contienen unicamente 10° de concentración alcoholica.
-        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#multicollapseExample1" aria-expanded="false" aria-controls="multicollapseExample1">
-          Conoce más
-        </button>
-        <div class="collapse multi-collapse bg-transparent" id="multicollapseExample1">
-          <div class="card card-body bg-transparent">
-            Sin embargo conservan perfectamente el sabor del Agave con un exquisito toque frutal añadido, estas bebidas son la mejor opcion para quienes buscan probar el sabor de los mejores destilados de agave pero prefieren no consumir bebidas con altas concentraciones
-            alcoholicas.
-          </div>
-        </div>
-      </p>
-    </article>
-    <article>
-      <h4>
+    <h4 class="productos__titulo">
+      SABORES
+    </h4>
+    <p class="productos__texto">
+      Elixir es para todos, por lo que contamos tambien con 3 bebidas preparadas con mezcal espadin, las cuales contienen unicamente 10° de concentración alcoholica. <br>Sin embargo conservan perfectamente el sabor del Agave con un exquisito toque frutal
+      añadido, estas bebidas son la mejor opcion para quienes buscan probar el sabor de los mejores destilados de agave pero prefieren no consumir bebidas con altas concentraciones alcoholicas.
+    </p>
+    <article class="productos__card productos__card">
+      <h4 class="productos__card__titulo">
         Naranja
       </h4>
-      <div>
-        <p>
+      <div class="productos__card__info productos__card__info--izq">
+        <p class="productos__card__info__texto">
           Nuestra bebida sabor Naranja, mezcla perfectamente las notas ligeramente amargas de la naranja con el sabor herbal del agave y amalgama de forma excepcional el toque ahumado del mezcal espadin
         </p>
-        <img src="/img sitio web/productos/naranja-con-rodaja.jpg" alt="Mezcal sabor naranja">
+        <img class="productos__card__info__img" src="../img_sitio_web/productos/naranja-con-rodaja.jpg " alt="Mezcal sabor naranja ">
       </div>
     </article>
-
-    <article>
-      <h4>
+    <article class="productos__card">
+      <h4 class="productos__card__titulo">
         Maracuya
       </h4>
-      <div>
-        <p>
+      <div class="productos__card__info">
+        <p class="productos__card__info__texto">
           El exotico sabor de la fruta de la pasion, incorpora un ligero contraste acido, que es apenas perceptible pero enriquece y realza las notas ahumadas del mezcal espadin.
         </p>
-        <img src="/img sitio web/productos/maracuya.jpg" alt="Mezcal sabor maracuya">
+        <img class="productos__card__info__img" src="../img_sitio_web/productos/maracuya.jpg " alt="Mezcal sabor maracuya ">
       </div>
     </article>
-    <article>
-      <h4>
+    <article class="productos__card">
+      <h4 class="productos__card__titulo">
         Lichi
       </h4>
-      <div>
-        <p>
+      <div class="productos__card__info productos__card__info--izq">
+        <p class="productos__card__info__texto">
           Un sabor unico, o almenos poco comun en el mundo del mezcal, nuestra bebida de lichi tiene un sabor delicioso enfocado hacia el perfil dulce del agave por lo cual puede considderarse una de nuestras bebidas más suavez, que no obstante conserva de forma
           excelente el sabor del agave y disfraza un poco la concentración alcoholica de la bebida.
         </p>
-        <img src="/img sitio web/productos/lichi.jpg" alt="Mezcal sabor lichi">
+        <img class="productos__card__info__img" src="../img_sitio_web/productos/lichi.jpg " alt="Mezcal sabor lichi ">
       </div>
     </article>
   </section>
   <!--footer-->
-
+  <footer class="container-fluid footer ">
+    <h4 class=" footer__texto ">
+      2021, MEZCAL ELIXIR, DERECHOS RESERVADOS.
+    </h4>
+    <div class="footer__redes ">
+      <a href="https://www.facebook.com/Elespirituelixir" target="_blank" rel="noopener noreferrer ">
+        <img class="footer__redes--icono footer__redes--icono__f" src="../img_sitio_web/iconos/facebook icono.svg" alt="icono de facebook ">
+      </a>
+      <a href="https://www.instagram.com/elixir_mezc/?hl=es" target="_blank" rel="noopener noreferrer">
+        <img class="footer__redes--icono footer__redes--icono__i" src="../img_sitio_web/iconos/instagram icono.svg" alt="icono de instagram">
+      </a>
+      <img class="footer__redes--icono footer__redes--icono__w" src="../img_sitio_web/iconos/whatsapp icono.svg" alt="icono de whatsapp">
+    </div>
+  </footer>
 
   <!--bootstrap js-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
 </body>
 
 </html>
