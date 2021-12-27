@@ -211,6 +211,8 @@
     justify-items: center;
     align-items: center;
     &__img--fondo {
+      height: 20vw;
+      width: 20vw;
       margin-top: 2vw;
       display: flex;
       flex-direction: column;
@@ -233,6 +235,7 @@
       }
     }
     &__respuesta {
+      width: 90%;
       background-color: transparent;
       font-family: $roboto;
       font-size: $sizeTextos;

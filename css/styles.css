@@ -233,6 +233,8 @@
   align-items: center;
 }
 .mezcal__container__img--fondo {
+  height: 20vw;
+  width: 20vw;
   margin-top: 2vw;
   display: flex;
   flex-direction: column;
@@ -261,6 +263,7 @@
   text-align: center;
 }
 .mezcal__container__respuesta {
+  width: 90%;
   background-color: transparent;
   font-family: "Roboto", sans-serif;
   font-size: 3vw;
