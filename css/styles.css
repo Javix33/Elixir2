@@ -168,13 +168,13 @@
   animation-delay: 2s;
   animation-iteration-count: infinite;
 }
-.footer__f {
+.footer__redes--icono__f {
   margin-left: -9vw;
 }
-.footer__i {
+.footer__redes--icono__i {
   margin-left: -4vw;
 }
-.footer__w {
+.footer__redes--icono__w {
   margin-left: 1vw;
 }
 .footer:hover {

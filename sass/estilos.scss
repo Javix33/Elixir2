@@ -147,15 +147,15 @@
     animation-duration: 4s;
     animation-delay: 2s;
     animation-iteration-count: infinite;
-  }
-  &__f {
-    margin-left: -9vw;
-  }
-  &__i {
-    margin-left: -4vw;
-  }
-  &__w {
-    margin-left: 1vw;
+    &__f {
+      margin-left: -9vw;
+    }
+    &__i {
+      margin-left: -4vw;
+    }
+    &__w {
+      margin-left: 1vw;
+    }
   }
   &:hover {
     animation-play-state: paused;
