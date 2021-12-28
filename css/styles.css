@@ -168,6 +168,16 @@
   animation-delay: 2s;
   animation-iteration-count: infinite;
 }
+.footer__redes--icono:hover {
+  animation-play-state: paused;
+  transform: scale(1.2);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.footer__redes--icono:focus {
+  transform: scale(1);
+  cursor: progress;
+}
 .footer__redes--icono__f {
   margin-left: -9vw;
 }
@@ -176,16 +186,6 @@
 }
 .footer__redes--icono__w {
   margin-left: 1vw;
-}
-.footer:hover {
-  animation-play-state: paused;
-  transform: scale(1.2);
-  transition: all 0.5s;
-  cursor: pointer;
-}
-.footer:focus {
-  transform: scale(1);
-  cursor: progress;
 }
 
 @media screen and (max-width: 492px) {

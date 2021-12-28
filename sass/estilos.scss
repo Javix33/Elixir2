@@ -147,6 +147,16 @@
     animation-duration: 4s;
     animation-delay: 2s;
     animation-iteration-count: infinite;
+    &:hover {
+      animation-play-state: paused;
+      transform: scale(1.2);
+      transition: all .5s;
+      cursor: pointer;
+    }
+    &:focus {
+      transform: scale(1);
+      cursor: progress;
+    }
     &__f {
       margin-left: -9vw;
     }
@@ -156,16 +166,6 @@
     &__w {
       margin-left: 1vw;
     }
-  }
-  &:hover {
-    animation-play-state: paused;
-    transform: scale(1.2);
-    transition: all .5s;
-    cursor: pointer;
-  }
-  &:focus {
-    transform: scale(1);
-    cursor: progress;
   }
 }
 
