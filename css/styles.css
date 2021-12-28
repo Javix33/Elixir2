@@ -154,11 +154,11 @@
   margin-left: 9vw;
 }
 .footer__redes--icono {
-  border-radius: 20px;
   border: 1px;
   border-radius: 20px;
   border-color: white;
   border-style: solid;
+  border-radius: 25px;
   background-color: white;
   height: 4vw;
   width: 4vw;

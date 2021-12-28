@@ -137,8 +137,8 @@
     margin-left: 9vw;
   }
   &__redes--icono {
-    border-radius: 20px;
     @include bordes;
+    border-radius: 25px;
     background-color: white;
     height: $heigthIconos;
     width: $widthIconos;
