@@ -168,27 +168,22 @@
   animation-delay: 2s;
   animation-iteration-count: infinite;
 }
-@media screen and (max-width: 991px) {
-  .footer__redes--icono {
-    z-index: 10;
-  }
-}
-.footer__redes--icono__f {
+.footer__f {
   margin-left: -9vw;
 }
-.footer__redes--icono__i {
+.footer__i {
   margin-left: -4vw;
 }
-.footer__redes--icono__w {
+.footer__w {
   margin-left: 1vw;
 }
-.footer__redes--icono:hover {
+.footer:hover {
   animation-play-state: paused;
   transform: scale(1.2);
   transition: all 0.5s;
   cursor: pointer;
 }
-.footer__redes--icono:focus {
+.footer:focus {
   transform: scale(1);
   cursor: progress;
 }
@@ -199,11 +194,21 @@
     bottom: 0;
   }
 }
+@media screen and (orientation: landscape) {
+  .footer--contacto {
+    position: relative;
+  }
+}
 
 @media screen and (max-width: 991px) {
   .footer--distro {
     position: absolute;
     bottom: 0;
+  }
+}
+@media screen and (orientation: landscape) {
+  .footer--distro {
+    position: relative;
   }
 }
 

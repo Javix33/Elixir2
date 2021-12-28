@@ -169,32 +169,31 @@
   }
 }
 
-
-}
 .footer--contacto {
   @media screen and(max-width: 492px) {
     position: absolute;
     bottom: 0;
   }
-  
   @media screen and(orientation:landscape) {
     position: relative;
   }
 }
+
 .footer--distro {
   @media screen and(max-width: 991px) {
     position: absolute;
     bottom: 0;
   }
-  
   @media screen and(orientation:landscape) {
     position: relative;
   }
 }
+
 //pagina de inicio//
 .main {
   margin: 3%;
 }
+
 .mezcal {
   display: flex;
   flex-direction: column;
@@ -205,7 +204,6 @@
     color: $colorTextos;
     text-align: center;
   }
-  
   &__container {
     font-family: $roboto;
     font-size: $sizeSubtitulos;
@@ -250,7 +248,6 @@
       text-align: justify;
     }
   }
-  
   &__definicion {
     list-style-type: upper-roman;
     font-family: $roboto;
@@ -259,6 +256,7 @@
     text-align: justify;
   }
 }
+
 .btn {
   @extend .textos;
   height: fit-content;
@@ -267,9 +265,11 @@
   @include bordes();
   @include bgblur();
 }
+
 .card {
   border: none;
 }
+
 .procesos {
   display: flex;
   flex-direction: column;
@@ -280,26 +280,22 @@
     color: $colorTextos;
     text-align: center;
   }
-  
   &__card {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-items: center;
   }
-  
   &__card--derecha {
     @extend .procesos__card;
     flex-direction: row-reverse;
   }
-  
   &__img {
     width: 25vw;
     height: 25vw;
     @include bordes;
     display: inline;
   }
-  
   &__info {
     margin: 5%;
     width: 50%;
@@ -327,7 +323,6 @@
       }
     }
   }
-  
   &__mapa {
     margin-top: 3vw;
     width: 90vw;
@@ -335,6 +330,7 @@
     @include bordes;
   }
 }
+
 //pagina elixir// 
 .elixir {
   min-height: $heightFooter;
@@ -348,7 +344,6 @@
     color: $colorTextos;
     text-align: center;
   }
-  
   &__contenido {
     margin: 3vw;
     display: flex;
@@ -368,6 +363,7 @@
     }
   }
 }
+
 //pagina productos// 
 .productos {
   min-height: $heightFooter;
@@ -380,7 +376,6 @@
     font-size: $sizeTitulos;
     text-align: center;
   }
-  
   &__texto {
     @extend .textos;
     font-size: $sizeTextos;
@@ -388,7 +383,6 @@
     margin-left: 5vw;
     margin-right: 5vw;
   }
-  
   &__card {
     display: flex;
     flex-direction: column;
@@ -419,6 +413,7 @@
     }
   }
 }
+
 //pagina distribuidores// 
 .distros {
   padding-top: 8vw;
@@ -444,7 +439,6 @@
       text-align: justify;
     }
   }
-  
   &__mapa {
     align-self: flex-start;
     margin-right: 2vw;
@@ -461,6 +455,7 @@
     }
   }
 }
+
 //pagina contacto// 
 .contacto {
   display: flex;
@@ -478,7 +473,6 @@
       font-size: $sizeTitulos;
     }
   }
-  
   &__formulario {
     &__form {
       @extend .textos;
