@@ -16,6 +16,7 @@
 //pagina de aviso//
 .body {
   background-image: url(../img_sitio_web/transparencia-web.png);
+  background-size: contain;
   background-color: $bgColorElixir;
   display: flex;
   flex-direction: column;
@@ -79,10 +80,14 @@
 
 //header// 
 .cabecera {
+  height: 11vw;
   width: 100%;
   @include bgblur();
   @extend .textos;
   border-bottom: $bordeBlanco;
+  @media screen and (max-width: 555px) {
+    height: 10vh;
+  }
   &__logo {
     height: 8vw;
     border-radius: $bordeRedondeado;
@@ -109,12 +114,24 @@
       background-image: url(../img_sitio_web/iconos/menu.png);
     }
   }
+  .menu__expand {
+    @media screen and (max-width: 991px) {
+      background-image: url(../img_sitio_web/transparencia-web.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin-top: 2.5vh;
+      background-color: $bgColorElixir;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      border: $bordeBlanco;
+    }
+  }
 }
 
 //footer// 
 .footer {
   @include bgblur();
-  height: 14vw;
+  height: $heightFooter;
   width: 100%;
   border-top-left-radius: $bordeRedondeado;
   border-top-right-radius: $bordeRedondeado;
@@ -169,29 +186,10 @@
   }
 }
 
-.footer--contacto {
-  @media screen and(max-width: 492px) {
-    position: absolute;
-    bottom: 0;
-  }
-  @media screen and(orientation:landscape) {
-    position: relative;
-  }
-}
-
-.footer--distro {
-  @media screen and(max-width: 991px) {
-    position: absolute;
-    bottom: 0;
-  }
-  @media screen and(orientation:landscape) {
-    position: relative;
-  }
-}
-
 //pagina de inicio//
 .main {
   margin: 3%;
+  min-height: calc(100vh - 11vw - 14vw);
 }
 
 .mezcal {
@@ -203,6 +201,9 @@
     font-size: $sizeTitulos;
     color: $colorTextos;
     text-align: center;
+    @media screen and (max-width: 991px) {
+      font-size: $titulosMobile;
+    }
   }
   &__container {
     font-family: $roboto;
@@ -213,6 +214,9 @@
     flex-direction: row;
     justify-items: center;
     align-items: center;
+    @media screen and (max-width: 991px) {
+      font-size: $subtitulosMobile;
+    }
     &__img--fondo {
       height: 20vw;
       width: 20vw;
@@ -235,6 +239,9 @@
         @include bgblur();
         align-self: center;
         text-align: center;
+        @media screen and (max-width: 991px) {
+          font-size: $subtitulosMobile;
+        }
       }
     }
     &__respuesta {
@@ -245,7 +252,10 @@
       color: $colorTextos;
       display: inline;
       margin: 2%;
-      text-align: justify;
+      text-align: left;
+      @media screen and (max-width: 991px) {
+        font-size: $textosMobile;
+      }
     }
   }
   &__definicion {
@@ -254,6 +264,9 @@
     font-size: $sizeTextos;
     color: $colorTextos;
     text-align: justify;
+    @media screen and (max-width: 991px) {
+      font-size: $textosMobile;
+    }
   }
 }
 
@@ -264,6 +277,12 @@
   margin-bottom: 1vw;
   @include bordes();
   @include bgblur();
+}
+
+@media screen and (max-width: 991px) {
+  .btn {
+    font-size: $textosMobile;
+  }
 }
 
 .card {
@@ -279,6 +298,9 @@
     font-size: $sizeTitulos;
     color: $colorTextos;
     text-align: center;
+    @media screen and (max-width: 991px) {
+      font-size: $textosMobile;
+    }
   }
   &__card {
     display: flex;
@@ -305,17 +327,26 @@
       font-size: $sizeSubtitulos;
       color: $colorTextos;
       font-family: $roboto;
+      @media screen and (max-width: 991px) {
+        font-size: $subtitulosMobile;
+      }
     }
     &__texto {
       font-family: $roboto;
       font-size: $sizeTextos;
       color: $colorTextos;
-      text-align: justify;
+      text-align: center;
+      @media screen and (max-width: 991px) {
+        font-size: $textosMobile;
+      }
       &__mas {
         font-family: $roboto;
         font-size: $sizeTextos;
         color: $colorTextos;
-        text-align: justify;
+        text-align: center;
+        @media screen and (max-width: 991px) {
+          font-size: $textosMobile;
+        }
       }
       &__mas--lista {
         @extend .procesos__info__texto__mas;

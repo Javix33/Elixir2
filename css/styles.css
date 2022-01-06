@@ -28,6 +28,7 @@
 
 .body {
   background-image: url(../img_sitio_web/transparencia-web.png);
+  background-size: contain;
   background-color: #0C3559;
   display: flex;
   flex-direction: column;
@@ -73,7 +74,7 @@
   border: none;
   height: fit-content;
   margin-top: 10%;
-  font-size: 5vw;
+  font-size: 4vw;
   color: black;
   text-align: center;
 }
@@ -95,16 +96,22 @@
   border-radius: 25px;
   height: fit-content;
   color: black;
-  font-size: 5vw;
+  font-size: 4vw;
   display: block;
   text-decoration: none;
 }
 
 .cabecera {
+  height: 11vw;
   width: 100%;
   background-color: 225, 255, 255, 7;
   backdrop-filter: blur(10px);
   border-bottom: 2px solid white;
+}
+@media screen and (max-width: 555px) {
+  .cabecera {
+    height: 10vh;
+  }
 }
 .cabecera__logo {
   height: 8vw;
@@ -127,6 +134,18 @@
 .cabecera .navbar-toggler-icon {
   background-image: url(../img_sitio_web/iconos/menu.png);
 }
+@media screen and (max-width: 991px) {
+  .cabecera .menu__expand {
+    background-image: url(../img_sitio_web/transparencia-web.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 2.5vh;
+    background-color: #0C3559;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: 2px solid white;
+  }
+}
 
 .footer {
   background-color: 225, 255, 255, 7;
@@ -143,7 +162,7 @@
   grid-gap: 5vw;
 }
 .footer__texto {
-  font-size: 3vw;
+  font-size: 2vw;
   font-weight: 900;
   grid-area: texto;
   margin-left: 2vw;
@@ -188,32 +207,9 @@
   margin-left: 1vw;
 }
 
-@media screen and (max-width: 492px) {
-  .footer--contacto {
-    position: absolute;
-    bottom: 0;
-  }
-}
-@media screen and (orientation: landscape) {
-  .footer--contacto {
-    position: relative;
-  }
-}
-
-@media screen and (max-width: 991px) {
-  .footer--distro {
-    position: absolute;
-    bottom: 0;
-  }
-}
-@media screen and (orientation: landscape) {
-  .footer--distro {
-    position: relative;
-  }
-}
-
 .main {
   margin: 3%;
+  min-height: calc(100vh - 11vw - 14vw);
 }
 
 .mezcal {
@@ -223,19 +219,29 @@
 }
 .mezcal__titulo {
   font-family: "Roboto", sans-serif;
-  font-size: 5vw;
+  font-size: 4vw;
   color: white;
   text-align: center;
 }
+@media screen and (max-width: 991px) {
+  .mezcal__titulo {
+    font-size: 6vw;
+  }
+}
 .mezcal__container {
   font-family: "Roboto", sans-serif;
-  font-size: 4vw;
+  font-size: 3vw;
   color: white;
   display: inline;
   display: flex;
   flex-direction: row;
   justify-items: center;
   align-items: center;
+}
+@media screen and (max-width: 991px) {
+  .mezcal__container {
+    font-size: 5vw;
+  }
 }
 .mezcal__container__img--fondo {
   height: 20vw;
@@ -260,34 +266,49 @@
 }
 .mezcal__container__img--fondo__subtitulo {
   font-family: "Roboto", sans-serif;
-  font-size: 4vw;
+  font-size: 3vw;
   color: white;
   background-color: 225, 255, 255, 7;
   backdrop-filter: blur(10px);
   align-self: center;
   text-align: center;
 }
+@media screen and (max-width: 991px) {
+  .mezcal__container__img--fondo__subtitulo {
+    font-size: 5vw;
+  }
+}
 .mezcal__container__respuesta {
   width: 90%;
   background-color: transparent;
   font-family: "Roboto", sans-serif;
-  font-size: 3vw;
+  font-size: 2vw;
   color: white;
   display: inline;
   margin: 2%;
-  text-align: justify;
+  text-align: left;
+}
+@media screen and (max-width: 991px) {
+  .mezcal__container__respuesta {
+    font-size: 4vw;
+  }
 }
 .mezcal__definicion {
   list-style-type: upper-roman;
   font-family: "Roboto", sans-serif;
-  font-size: 3vw;
+  font-size: 2vw;
   color: white;
   text-align: justify;
+}
+@media screen and (max-width: 991px) {
+  .mezcal__definicion {
+    font-size: 4vw;
+  }
 }
 
 .btn {
   height: fit-content;
-  font-size: 3vw;
+  font-size: 2vw;
   margin-bottom: 1vw;
   border: 1px;
   border-radius: 20px;
@@ -297,6 +318,11 @@
   backdrop-filter: blur(10px);
 }
 
+@media screen and (max-width: 991px) {
+  .btn {
+    font-size: 4vw;
+  }
+}
 .card {
   border: none;
 }
@@ -308,9 +334,14 @@
 }
 .procesos__titulo {
   font-family: "Roboto", sans-serif;
-  font-size: 5vw;
+  font-size: 4vw;
   color: white;
   text-align: center;
+}
+@media screen and (max-width: 991px) {
+  .procesos__titulo {
+    font-size: 4vw;
+  }
 }
 .procesos__card, .procesos__card--derecha {
   display: flex;
@@ -337,21 +368,36 @@
 }
 .procesos__info__titulo {
   text-align: center;
-  font-size: 4vw;
+  font-size: 3vw;
   color: white;
   font-family: "Roboto", sans-serif;
+}
+@media screen and (max-width: 991px) {
+  .procesos__info__titulo {
+    font-size: 5vw;
+  }
 }
 .procesos__info__texto {
   font-family: "Roboto", sans-serif;
-  font-size: 3vw;
+  font-size: 2vw;
   color: white;
-  text-align: justify;
+  text-align: center;
+}
+@media screen and (max-width: 991px) {
+  .procesos__info__texto {
+    font-size: 4vw;
+  }
 }
 .procesos__info__texto__mas, .procesos__info__texto__mas--lista {
   font-family: "Roboto", sans-serif;
-  font-size: 3vw;
+  font-size: 2vw;
   color: white;
-  text-align: justify;
+  text-align: center;
+}
+@media screen and (max-width: 991px) {
+  .procesos__info__texto__mas, .procesos__info__texto__mas--lista {
+    font-size: 4vw;
+  }
 }
 .procesos__info__texto__mas--lista {
   list-style-type: circle;
@@ -367,7 +413,7 @@
 }
 
 .elixir {
-  min-height: 80vh;
+  min-height: 14vw;
   margin-top: 3vh;
   display: flex;
   flex-direction: column;
@@ -375,7 +421,7 @@
 }
 .elixir__titulo {
   font-family: "Roboto", sans-serif;
-  font-size: 5vw;
+  font-size: 4vw;
   color: white;
   text-align: center;
 }
@@ -387,30 +433,30 @@
 }
 .elixir__contenido__titulo {
   font-family: "Roboto", sans-serif;
-  font-size: 4vw;
+  font-size: 3vw;
   color: white;
   text-align: center;
 }
 .elixir__contenido__texto {
   font-family: "Roboto", sans-serif;
-  font-size: 3vw;
+  font-size: 2vw;
   color: white;
   text-align: center;
 }
 
 .productos {
-  min-height: 80vh;
+  min-height: 14vw;
   margin: 3vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .productos__titulo {
-  font-size: 5vw;
+  font-size: 4vw;
   text-align: center;
 }
 .productos__texto {
-  font-size: 3vw;
+  font-size: 2vw;
   text-align: justify;
   margin-left: 5vw;
   margin-right: 5vw;
@@ -421,7 +467,7 @@
   align-items: center;
 }
 .productos__card__titulo {
-  font-size: 4vw;
+  font-size: 3vw;
   text-align: center;
 }
 .productos__card__info {
@@ -430,7 +476,7 @@
   align-items: center;
 }
 .productos__card__info__texto {
-  font-size: 3vw;
+  font-size: 2vw;
   text-align: justify;
   margin: 2vw 5vw;
 }
@@ -462,11 +508,11 @@
   align-self: flex-start;
 }
 .distros__dir__titulo {
-  font-size: 5vw;
+  font-size: 4vw;
   text-align: center;
 }
 .distros__dir__texto {
-  font-size: 3vw;
+  font-size: 2vw;
   text-align: justify;
 }
 .distros__mapa {
@@ -504,10 +550,10 @@
 .contacto__elixir__texto {
   margin-left: 3vw;
   margin-right: 3vw;
-  font-size: 5vw;
+  font-size: 4vw;
 }
 .contacto__formulario__form {
-  font-size: 3vw;
+  font-size: 2vw;
   margin-left: 3%;
   display: inline;
   grid-area: formulario;
@@ -524,7 +570,7 @@
   }
 }
 .contacto__formulario__form__contorno__titulo {
-  font-size: 4vw;
+  font-size: 3vw;
   font-weight: 500;
 }
 .contacto__formulario__form__campos {
@@ -535,7 +581,7 @@
 .contacto__formulario__form__subtitulo {
   margin-top: 3%;
   margin-bottom: 3%;
-  font-size: 3vw;
+  font-size: 2vw;
   font-weight: 400;
 }
 .contacto__formulario .boton {
