@@ -318,12 +318,12 @@
   background-color: 225, 255, 255, 7;
   backdrop-filter: blur(10px);
 }
-
 @media screen and (max-width: 991px) {
   .btn {
     font-size: 4vw;
   }
 }
+
 .card {
   border: none;
 }
@@ -445,7 +445,7 @@
 }
 
 .elixir {
-  min-height: 14vw;
+  min-height: calc(99vh - 11vw - 14vh);
   margin-top: 3vh;
   display: flex;
   flex-direction: column;
@@ -456,6 +456,11 @@
   font-size: 4vw;
   color: white;
   text-align: center;
+}
+@media screen and (max-width: 991px) {
+  .elixir__titulo {
+    font-size: 6vw;
+  }
 }
 .elixir__contenido {
   margin: 3vw;
@@ -469,15 +474,25 @@
   color: white;
   text-align: center;
 }
+@media screen and (max-width: 991px) {
+  .elixir__contenido__titulo {
+    font-size: 5vw;
+  }
+}
 .elixir__contenido__texto {
   font-family: "Roboto", sans-serif;
   font-size: 2vw;
   color: white;
   text-align: center;
 }
+@media screen and (max-width: 991px) {
+  .elixir__contenido__texto {
+    font-size: 4vw;
+  }
+}
 
 .productos {
-  min-height: 14vw;
+  min-height: calc(99vh - 11vw - 14vw);
   margin: 3vw;
   display: flex;
   flex-direction: column;
@@ -487,11 +502,21 @@
   font-size: 4vw;
   text-align: center;
 }
+@media screen and (max-width: 991px) {
+  .productos__titulo {
+    font-size: 6vw;
+  }
+}
 .productos__texto {
   font-size: 2vw;
-  text-align: justify;
+  text-align: left;
   margin-left: 5vw;
   margin-right: 5vw;
+}
+@media screen and (max-width: 991px) {
+  .productos__texto {
+    font-size: 4vw;
+  }
 }
 .productos__card {
   display: flex;
@@ -502,19 +527,39 @@
   font-size: 3vw;
   text-align: center;
 }
+@media screen and (max-width: 991px) {
+  .productos__card__titulo {
+    font-size: 5vw;
+  }
+}
 .productos__card__info {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+.productos__card__info__mobile {
+  min-width: auto;
+}
+@media screen and (max-width: 991px) {
+  .productos__card__info__mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .productos__card__info__texto {
   font-size: 2vw;
-  text-align: justify;
+  text-align: left;
   margin: 2vw 5vw;
+}
+@media screen and (max-width: 991px) {
+  .productos__card__info__texto {
+    font-size: 4vw;
+  }
 }
 .productos__card__info__img {
   width: 30vw;
-  height: 30vw;
+  min-height: 30vw;
   border: 1px;
   border-radius: 20px;
   border-color: white;

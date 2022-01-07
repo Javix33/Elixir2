@@ -278,10 +278,7 @@
     margin-bottom: 1vw;
     @include bordes();
     @include bgblur();
-  }
-  
-  @media screen and (max-width: 991px) {
-    .btn {
+    @media screen and (max-width: 991px) {
       font-size: $textosMobile;
     }
   }
@@ -395,7 +392,7 @@
   
   //pagina elixir// 
   .elixir {
-    min-height: $heightFooter;
+    min-height: calc( 99vh - 11vw - 14vh);
     margin-top: 3vh;
     display: flex;
     flex-direction: column;
@@ -405,6 +402,9 @@
       font-size: $sizeTitulos;
       color: $colorTextos;
       text-align: center;
+      @media screen and (max-width: 991px) {
+        font-size: $titulosMobile;
+      }
     }
     &__contenido {
       margin: 3vw;
@@ -416,19 +416,25 @@
         font-size: $sizeSubtitulos;
         color: $colorTextos;
         text-align: center;
+        @media screen and (max-width: 991px) {
+          font-size: $subtitulosMobile;
+        }
       }
       &__texto {
         font-family: $roboto;
         font-size: $sizeTextos;
         color: $colorTextos;
         text-align: center;
+        @media screen and (max-width: 991px) {
+          font-size: $textosMobile;
+        }
       }
     }
   }
   
   //pagina productos// 
   .productos {
-    min-height: $heightFooter;
+    min-height: calc(99vh - 11vw - 14vw);
     margin: 3vw;
     display: flex;
     flex-direction: column;
@@ -437,13 +443,19 @@
       @extend .textos;
       font-size: $sizeTitulos;
       text-align: center;
+      @media screen and (max-width: 991px) {
+        font-size: $titulosMobile;
+      }
     }
     &__texto {
       @extend .textos;
       font-size: $sizeTextos;
-      text-align: justify;
+      text-align: left;
       margin-left: 5vw;
       margin-right: 5vw;
+      @media screen and (max-width: 991px) {
+        font-size: $textosMobile;
+      }
     }
     &__card {
       display: flex;
@@ -453,20 +465,34 @@
         @extend .textos;
         font-size: $sizeSubtitulos;
         text-align: center;
+        @media screen and (max-width: 991px) {
+          font-size: $subtitulosMobile;
+        }
       }
       &__info {
         display: flex;
         flex-direction: row;
         align-items: center;
+        &__mobile {
+          min-width: auto;
+          @media screen and (max-width: 991px) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        }
         &__texto {
           @extend .textos;
           font-size: $sizeTextos;
-          text-align: justify;
+          text-align: left;
           margin: 2vw 5vw;
+          @media screen and (max-width: 991px) {
+            font-size: $textosMobile;
+          }
         }
         &__img {
           width: 30vw;
-          height: 30vw;
+          min-height: 30vw;
           @include bordes;
         }
       }
