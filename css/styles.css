@@ -265,6 +265,7 @@
   background-repeat: no-repeat;
 }
 .mezcal__container__img--fondo__subtitulo {
+  width: 100%;
   font-family: "Roboto", sans-serif;
   font-size: 3vw;
   color: white;
@@ -403,13 +404,44 @@
   list-style-type: circle;
 }
 .procesos__mapa {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   margin-top: 3vw;
-  width: 90vw;
   height: auto;
   border: 1px;
   border-radius: 20px;
   border-color: white;
   border-style: solid;
+  background-color: 225, 255, 255, 7;
+  backdrop-filter: blur(10px);
+}
+.procesos__mapa__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 20%;
+  height: auto;
+}
+.procesos__mapa__card__titulo {
+  margin-top: 2vw;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 3vw;
+  color: white;
+}
+.procesos__mapa__card__img {
+  width: 60%;
+  height: auto;
+}
+.procesos__mapa__card__texto {
+  flex-wrap: wrap;
+  width: 58%;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 2vw;
+  color: white;
 }
 
 .elixir {

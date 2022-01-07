@@ -1,345 +1,338 @@
-//imports//
-@import "__variables";
-@import "__mixins";
-@import "__animaciones";
-* {
-  padding: 0;
-  margin: 0;
-}
-
-.textos {
-  font-family: $roboto;
-  color: $colorTextos;
-  text-decoration: none;
-}
-
-//pagina de aviso//
-.body {
-  background-image: url(../img_sitio_web/transparencia-web.png);
-  background-size: contain;
-  background-color: $bgColorElixir;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media screen and(max-width: 991px) {
-    background-size: 100%;
+  //imports//
+  @import "__variables";
+  @import "__mixins";
+  @import "__animaciones";
+  * {
+    padding: 0;
+    margin: 0;
   }
-}
-
-.edad {
-  height: 50vh;
-  width: 50vw;
-  margin: 25vh;
-  @include bordes;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-image: url(../img_sitio_web/campoAgave1024.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  @media screen and(orientation: landscape) {
-    height: 40vw;
-    width: 50vw;
-  }
-  @media screen and(max-width: 991px) {
-    padding-top: 13vh;
-  }
-  &__titulo {
-    @include bgblur;
-    border-radius: 20px;
-    border: none;
-    height: fit-content;
-    margin-top: 10%;
-    font-size: $sizeTitulos;
-    color: $textoChecker;
-    text-align: center;
-  }
-  &__botonera {
-    height: fit-content;
-    width: 50%;
-    margin-top: 10%;
-    align-self: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  &__boton {
-    text-align: center;
-    width: 8vw;
-    @include bgblur;
-    border: none;
-    border-radius: 25px;
-    height: fit-content;
-    color: $textoChecker;
-    font-size: $sizeTitulos;
-    display: block;
+  
+  .textos {
+    font-family: $roboto;
+    color: $colorTextos;
     text-decoration: none;
   }
-}
-
-//header// 
-.cabecera {
-  height: 11vw;
-  width: 100%;
-  @include bgblur();
-  @extend .textos;
-  border-bottom: $bordeBlanco;
-  @media screen and (max-width: 555px) {
-    height: 10vh;
-  }
-  &__logo {
-    height: 8vw;
-    border-radius: $bordeRedondeado;
-    border: $bordeBlanco;
-    margin-top: 0.5%;
-    margin-left: 2%;
-  }
-  &__vinculo {
-    @extend .textos;
-    &:focus {
-      transform: scale(1);
-      cursor: progress;
+  
+  //pagina de aviso//
+  .body {
+    background-image: url(../img_sitio_web/transparencia-web.png);
+    background-size: contain;
+    background-color: $bgColorElixir;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media screen and(max-width: 991px) {
+      background-size: 100%;
     }
-    @media screen and (min-width:992px) {
-      &:hover {
-        transform: scale(1.1);
-        transition: all .5s;
-        cursor: pointer;
+  }
+  
+  .edad {
+    height: 50vh;
+    width: 50vw;
+    margin: 25vh;
+    @include bordes;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../img_sitio_web/campoAgave1024.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    @media screen and(orientation: landscape) {
+      height: 40vw;
+      width: 50vw;
+    }
+    @media screen and(max-width: 991px) {
+      padding-top: 13vh;
+    }
+    &__titulo {
+      @include bgblur;
+      border-radius: 20px;
+      border: none;
+      height: fit-content;
+      margin-top: 10%;
+      font-size: $sizeTitulos;
+      color: $textoChecker;
+      text-align: center;
+    }
+    &__botonera {
+      height: fit-content;
+      width: 50%;
+      margin-top: 10%;
+      align-self: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &__boton {
+      text-align: center;
+      width: 8vw;
+      @include bgblur;
+      border: none;
+      border-radius: 25px;
+      height: fit-content;
+      color: $textoChecker;
+      font-size: $sizeTitulos;
+      display: block;
+      text-decoration: none;
+    }
+  }
+  
+  //header// 
+  .cabecera {
+    height: 11vw;
+    width: 100%;
+    @include bgblur();
+    @extend .textos;
+    border-bottom: $bordeBlanco;
+    @media screen and (max-width: 555px) {
+      height: 10vh;
+    }
+    &__logo {
+      height: 8vw;
+      border-radius: $bordeRedondeado;
+      border: $bordeBlanco;
+      margin-top: 0.5%;
+      margin-left: 2%;
+    }
+    &__vinculo {
+      @extend .textos;
+      &:focus {
+        transform: scale(1);
+        cursor: progress;
+      }
+      @media screen and (min-width:992px) {
+        &:hover {
+          transform: scale(1.1);
+          transition: all .5s;
+          cursor: pointer;
+        }
+      }
+    }
+    .navbar-toggler {
+      &-icon {
+        background-image: url(../img_sitio_web/iconos/menu.png);
+      }
+    }
+    .menu__expand {
+      @media screen and (max-width: 991px) {
+        background-image: url(../img_sitio_web/transparencia-web.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 2.5vh;
+        background-color: $bgColorElixir;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border: $bordeBlanco;
       }
     }
   }
-  .navbar-toggler {
-    &-icon {
-      background-image: url(../img_sitio_web/iconos/menu.png);
+  
+  //footer// 
+  .footer {
+    @include bgblur();
+    height: $heightFooter;
+    width: 100%;
+    border-top-left-radius: $bordeRedondeado;
+    border-top-right-radius: $bordeRedondeado;
+    border-top: $bordeBlanco;
+    display: grid;
+    grid-template-areas: ". . . redes" "texto texto texto redes" ". . . redes";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5vw;
+    &__texto {
+      @extend .textos;
+      font-size: $sizeTextos;
+      font-weight: 900;
+      grid-area: texto;
+      margin-left: 2vw;
+    }
+    &__redes {
+      grid-area: redes;
+      margin-top: 1vw;
+      margin-left: 9vw;
+    }
+    &__redes--icono {
+      @include bordes;
+      border-radius: 25px;
+      background-color: white;
+      height: $heigthIconos;
+      width: $widthIconos;
+      display: block;
+      animation-name: animacion__redes;
+      animation-duration: 4s;
+      animation-delay: 2s;
+      animation-iteration-count: infinite;
+      &:hover {
+        animation-play-state: paused;
+        transform: scale(1.2);
+        transition: all .5s;
+        cursor: pointer;
+      }
+      &:focus {
+        transform: scale(1);
+        cursor: progress;
+      }
+      &__f {
+        margin-left: -9vw;
+      }
+      &__i {
+        margin-left: -4vw;
+      }
+      &__w {
+        margin-left: 1vw;
+      }
     }
   }
-  .menu__expand {
-    @media screen and (max-width: 991px) {
-      background-image: url(../img_sitio_web/transparencia-web.png);
-      background-repeat: no-repeat;
-      background-size: cover;
-      margin-top: 2.5vh;
-      background-color: $bgColorElixir;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-      border: $bordeBlanco;
-    }
+  
+  //pagina de inicio//
+  .main {
+    margin: 3%;
+    min-height: calc(100vh - 11vw - 14vw);
   }
-}
-
-//footer// 
-.footer {
-  @include bgblur();
-  height: $heightFooter;
-  width: 100%;
-  border-top-left-radius: $bordeRedondeado;
-  border-top-right-radius: $bordeRedondeado;
-  border-top: $bordeBlanco;
-  display: grid;
-  grid-template-areas: ". . . redes" "texto texto texto redes" ". . . redes";
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-gap: 5vw;
-  &__texto {
-    @extend .textos;
-    font-size: $sizeTextos;
-    font-weight: 900;
-    grid-area: texto;
-    margin-left: 2vw;
-  }
-  &__redes {
-    grid-area: redes;
-    margin-top: 1vw;
-    margin-left: 9vw;
-  }
-  &__redes--icono {
-    @include bordes;
-    border-radius: 25px;
-    background-color: white;
-    height: $heigthIconos;
-    width: $widthIconos;
-    display: block;
-    animation-name: animacion__redes;
-    animation-duration: 4s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    &:hover {
-      animation-play-state: paused;
-      transform: scale(1.2);
-      transition: all .5s;
-      cursor: pointer;
-    }
-    &:focus {
-      transform: scale(1);
-      cursor: progress;
-    }
-    &__f {
-      margin-left: -9vw;
-    }
-    &__i {
-      margin-left: -4vw;
-    }
-    &__w {
-      margin-left: 1vw;
-    }
-  }
-}
-
-//pagina de inicio//
-.main {
-  margin: 3%;
-  min-height: calc(100vh - 11vw - 14vw);
-}
-
-.mezcal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &__titulo {
-    font-family: $roboto;
-    font-size: $sizeTitulos;
-    color: $colorTextos;
-    text-align: center;
-    @media screen and (max-width: 991px) {
-      font-size: $titulosMobile;
-    }
-  }
-  &__container {
-    font-family: $roboto;
-    font-size: $sizeSubtitulos;
-    color: $colorTextos;
-    display: inline;
+  
+  .mezcal {
     display: flex;
-    flex-direction: row;
-    justify-items: center;
+    flex-direction: column;
     align-items: center;
-    @media screen and (max-width: 991px) {
-      font-size: $subtitulosMobile;
+    &__titulo {
+      font-family: $roboto;
+      font-size: $sizeTitulos;
+      color: $colorTextos;
+      text-align: center;
+      @media screen and (max-width: 991px) {
+        font-size: $titulosMobile;
+      }
     }
-    &__img--fondo {
-      height: 20vw;
-      width: 20vw;
-      margin-top: 2vw;
+    &__container {
+      font-family: $roboto;
+      font-size: $sizeSubtitulos;
+      color: $colorTextos;
+      display: inline;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      @include bordes();
-      @include bgimg();
-      width: 30%;
-      height: 15vw;
-      background-image: url(../img_sitio_web/shot_mezcal.jpg);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      &__subtitulo {
+      flex-direction: row;
+      justify-items: center;
+      align-items: center;
+      @media screen and (max-width: 991px) {
+        font-size: $subtitulosMobile;
+      }
+      &__img--fondo {
+        height: 20vw;
+        width: 20vw;
+        margin-top: 2vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include bordes();
+        @include bgimg();
+        width: 30%;
+        height: 15vw;
+        background-image: url(../img_sitio_web/shot_mezcal.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        &__subtitulo {
+          width: 100%;
+          font-family: $roboto;
+          font-size: $sizeSubtitulos;
+          color: $colorTextos;
+          @include bgblur();
+          align-self: center;
+          text-align: center;
+          @media screen and (max-width: 991px) {
+            font-size: $subtitulosMobile;
+          }
+        }
+      }
+      &__respuesta {
+        width: 90%;
+        background-color: transparent;
         font-family: $roboto;
+        font-size: $sizeTextos;
+        color: $colorTextos;
+        display: inline;
+        margin: 2%;
+        text-align: left;
+        @media screen and (max-width: 991px) {
+          font-size: $textosMobile;
+        }
+      }
+    }
+    &__definicion {
+      list-style-type: upper-roman;
+      font-family: $roboto;
+      font-size: $sizeTextos;
+      color: $colorTextos;
+      text-align: justify;
+      @media screen and (max-width: 991px) {
+        font-size: $textosMobile;
+      }
+    }
+  }
+  
+  .btn {
+    @extend .textos;
+    height: fit-content;
+    font-size: $sizeTextos;
+    margin-bottom: 1vw;
+    @include bordes();
+    @include bgblur();
+  }
+  
+  @media screen and (max-width: 991px) {
+    .btn {
+      font-size: $textosMobile;
+    }
+  }
+  
+  .card {
+    border: none;
+  }
+  
+  .procesos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__titulo {
+      font-family: $roboto;
+      font-size: $sizeTitulos;
+      color: $colorTextos;
+      text-align: center;
+      @media screen and (max-width: 991px) {
+        font-size: $textosMobile;
+      }
+    }
+    &__card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-items: center;
+    }
+    &__card--derecha {
+      @extend .procesos__card;
+      flex-direction: row-reverse;
+    }
+    &__img {
+      width: 25vw;
+      height: 25vw;
+      @include bordes;
+      display: inline;
+    }
+    &__info {
+      margin: 5%;
+      width: 50%;
+      display: inline;
+      &__titulo {
+        text-align: center;
         font-size: $sizeSubtitulos;
         color: $colorTextos;
-        @include bgblur();
-        align-self: center;
-        text-align: center;
+        font-family: $roboto;
         @media screen and (max-width: 991px) {
           font-size: $subtitulosMobile;
         }
       }
-    }
-    &__respuesta {
-      width: 90%;
-      background-color: transparent;
-      font-family: $roboto;
-      font-size: $sizeTextos;
-      color: $colorTextos;
-      display: inline;
-      margin: 2%;
-      text-align: left;
-      @media screen and (max-width: 991px) {
-        font-size: $textosMobile;
-      }
-    }
-  }
-  &__definicion {
-    list-style-type: upper-roman;
-    font-family: $roboto;
-    font-size: $sizeTextos;
-    color: $colorTextos;
-    text-align: justify;
-    @media screen and (max-width: 991px) {
-      font-size: $textosMobile;
-    }
-  }
-}
-
-.btn {
-  @extend .textos;
-  height: fit-content;
-  font-size: $sizeTextos;
-  margin-bottom: 1vw;
-  @include bordes();
-  @include bgblur();
-}
-
-@media screen and (max-width: 991px) {
-  .btn {
-    font-size: $textosMobile;
-  }
-}
-
-.card {
-  border: none;
-}
-
-.procesos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &__titulo {
-    font-family: $roboto;
-    font-size: $sizeTitulos;
-    color: $colorTextos;
-    text-align: center;
-    @media screen and (max-width: 991px) {
-      font-size: $textosMobile;
-    }
-  }
-  &__card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-items: center;
-  }
-  &__card--derecha {
-    @extend .procesos__card;
-    flex-direction: row-reverse;
-  }
-  &__img {
-    width: 25vw;
-    height: 25vw;
-    @include bordes;
-    display: inline;
-  }
-  &__info {
-    margin: 5%;
-    width: 50%;
-    display: inline;
-    &__titulo {
-      text-align: center;
-      font-size: $sizeSubtitulos;
-      color: $colorTextos;
-      font-family: $roboto;
-      @media screen and (max-width: 991px) {
-        font-size: $subtitulosMobile;
-      }
-    }
-    &__texto {
-      font-family: $roboto;
-      font-size: $sizeTextos;
-      color: $colorTextos;
-      text-align: center;
-      @media screen and (max-width: 991px) {
-        font-size: $textosMobile;
-      }
-      &__mas {
+      &__texto {
         font-family: $roboto;
         font-size: $sizeTextos;
         color: $colorTextos;
@@ -347,118 +340,99 @@
         @media screen and (max-width: 991px) {
           font-size: $textosMobile;
         }
+        &__mas {
+          font-family: $roboto;
+          font-size: $sizeTextos;
+          color: $colorTextos;
+          text-align: center;
+          @media screen and (max-width: 991px) {
+            font-size: $textosMobile;
+          }
+        }
+        &__mas--lista {
+          @extend .procesos__info__texto__mas;
+          list-style-type: circle;
+        }
       }
-      &__mas--lista {
-        @extend .procesos__info__texto__mas;
-        list-style-type: circle;
+    }
+    &__mapa {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 3vw;
+      height: auto;
+      @include bordes;
+      @include bgblur;
+      &__card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        width: 20%;
+        height: auto;
+        &__titulo {
+          margin-top: 2vw;
+          text-align: center;
+          font-family: $roboto;
+          font-size: $sizeSubtitulos;
+          color: $colorTextos;
+        }
+        &__img {
+          width: 60%;
+          height: auto;
+        }
+        &__texto {
+          flex-wrap: wrap;
+          width: 58%;
+          text-align: center;
+          font-family: $roboto;
+          font-size: 2vw;
+          color: $colorTextos;
+        }
       }
     }
   }
-  &__mapa {
-    margin-top: 3vw;
-    width: 90vw;
-    height: auto;
-    @include bordes;
+  
+  //pagina elixir// 
+  .elixir {
+    min-height: $heightFooter;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__titulo {
+      font-family: $roboto;
+      font-size: $sizeTitulos;
+      color: $colorTextos;
+      text-align: center;
+    }
+    &__contenido {
+      margin: 3vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__titulo {
+        font-family: $roboto;
+        font-size: $sizeSubtitulos;
+        color: $colorTextos;
+        text-align: center;
+      }
+      &__texto {
+        font-family: $roboto;
+        font-size: $sizeTextos;
+        color: $colorTextos;
+        text-align: center;
+      }
+    }
   }
-}
-
-//pagina elixir// 
-.elixir {
-  min-height: $heightFooter;
-  margin-top: 3vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &__titulo {
-    font-family: $roboto;
-    font-size: $sizeTitulos;
-    color: $colorTextos;
-    text-align: center;
-  }
-  &__contenido {
+  
+  //pagina productos// 
+  .productos {
+    min-height: $heightFooter;
     margin: 3vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    &__titulo {
-      font-family: $roboto;
-      font-size: $sizeSubtitulos;
-      color: $colorTextos;
-      text-align: center;
-    }
-    &__texto {
-      font-family: $roboto;
-      font-size: $sizeTextos;
-      color: $colorTextos;
-      text-align: center;
-    }
-  }
-}
-
-//pagina productos// 
-.productos {
-  min-height: $heightFooter;
-  margin: 3vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &__titulo {
-    @extend .textos;
-    font-size: $sizeTitulos;
-    text-align: center;
-  }
-  &__texto {
-    @extend .textos;
-    font-size: $sizeTextos;
-    text-align: justify;
-    margin-left: 5vw;
-    margin-right: 5vw;
-  }
-  &__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &__titulo {
-      @extend .textos;
-      font-size: $sizeSubtitulos;
-      text-align: center;
-    }
-    &__info {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      &__texto {
-        @extend .textos;
-        font-size: $sizeTextos;
-        text-align: justify;
-        margin: 2vw 5vw;
-      }
-      &__img {
-        width: 30vw;
-        height: 30vw;
-        @include bordes;
-      }
-    }
-    &__info--izq {
-      flex-direction: row-reverse;
-    }
-  }
-}
-
-//pagina distribuidores// 
-.distros {
-  padding-top: 8vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  &__dir {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10vw;
-    margin-top: 2vw;
-    margin-left: 2vw;
-    align-self: flex-start;
     &__titulo {
       @extend .textos;
       font-size: $sizeTitulos;
@@ -468,90 +442,147 @@
       @extend .textos;
       font-size: $sizeTextos;
       text-align: justify;
+      margin-left: 5vw;
+      margin-right: 5vw;
     }
-  }
-  &__mapa {
-    align-self: flex-start;
-    margin-right: 2vw;
-    &__i {
-      @include bordes();
-      width: 40vw;
-      height: 40vw;
-      margin-top: 3vw;
-      margin-bottom: 3vw;
-      @media screen and(max-width: 991px) {
-        width: 50vw;
-        height: 40vh;
+    &__card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__titulo {
+        @extend .textos;
+        font-size: $sizeSubtitulos;
+        text-align: center;
+      }
+      &__info {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        &__texto {
+          @extend .textos;
+          font-size: $sizeTextos;
+          text-align: justify;
+          margin: 2vw 5vw;
+        }
+        &__img {
+          width: 30vw;
+          height: 30vw;
+          @include bordes;
+        }
+      }
+      &__info--izq {
+        flex-direction: row-reverse;
       }
     }
   }
-}
-
-//pagina contacto// 
-.contacto {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  &__elixir {
-    margin-top: 3vw;
+  
+  //pagina distribuidores// 
+  .distros {
+    padding-top: 8vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &__dir {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10vw;
+      margin-top: 2vw;
+      margin-left: 2vw;
+      align-self: flex-start;
+      &__titulo {
+        @extend .textos;
+        font-size: $sizeTitulos;
+        text-align: center;
+      }
+      &__texto {
+        @extend .textos;
+        font-size: $sizeTextos;
+        text-align: justify;
+      }
+    }
+    &__mapa {
+      align-self: flex-start;
+      margin-right: 2vw;
+      &__i {
+        @include bordes();
+        width: 40vw;
+        height: 40vw;
+        margin-top: 3vw;
+        margin-bottom: 3vw;
+        @media screen and(max-width: 991px) {
+          width: 50vw;
+          height: 40vh;
+        }
+      }
+    }
+  }
+  
+  //pagina contacto// 
+  .contacto {
     display: flex;
     flex-direction: column;
     align-items: center;
-    &__texto {
-      margin-left: 3vw;
-      margin-right: 3vw;
-      @extend .textos;
-      font-size: $sizeTitulos;
+    &__elixir {
+      margin-top: 3vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__texto {
+        margin-left: 3vw;
+        margin-right: 3vw;
+        @extend .textos;
+        font-size: $sizeTitulos;
+      }
     }
-  }
-  &__formulario {
-    &__form {
-      @extend .textos;
-      font-size: $sizeTextos;
-      margin-left: 3%;
-      display: inline;
-      grid-area: formulario;
-      &__contorno {
-        text-align: center;
-        display: inline;
-        @media screen and (max-width: 991px) {
-          width: 120%;
-          margin-left: -10%;
-          align-self: center;
-        }
-        &__titulo {
-          font-size: $sizeSubtitulos;
-          font-weight: 500;
-        }
-      }
-      &__campos {
-        display: block;
-        text-align: left;
-        margin-left: 10%;
-      }
-      &__subtitulo {
-        margin-top: 3%;
-        margin-bottom: 3%;
+    &__formulario {
+      &__form {
+        @extend .textos;
         font-size: $sizeTextos;
-        font-weight: 400;
+        margin-left: 3%;
+        display: inline;
+        grid-area: formulario;
+        &__contorno {
+          text-align: center;
+          display: inline;
+          @media screen and (max-width: 991px) {
+            width: 120%;
+            margin-left: -10%;
+            align-self: center;
+          }
+          &__titulo {
+            font-size: $sizeSubtitulos;
+            font-weight: 500;
+          }
+        }
+        &__campos {
+          display: block;
+          text-align: left;
+          margin-left: 10%;
+        }
+        &__subtitulo {
+          margin-top: 3%;
+          margin-bottom: 3%;
+          font-size: $sizeTextos;
+          font-weight: 400;
+        }
       }
-    }
-    .boton {
-      font-family: $roboto;
-      background-color: $bgColorElixir;
-      color: $colorTextos;
-      width: 12vw;
-      height: 4vw;
-      @include bordes;
-      @extend .textos;
-      &:hover {
-        transform: scale(1.2);
-        transition: all 0.3s;
-        cursor: pointer;
-      }
-      &:focus {
-        transform: scale(1);
+      .boton {
+        font-family: $roboto;
+        background-color: $bgColorElixir;
+        color: $colorTextos;
+        width: 12vw;
+        height: 4vw;
+        @include bordes;
+        @extend .textos;
+        &:hover {
+          transform: scale(1.2);
+          transition: all 0.3s;
+          cursor: pointer;
+        }
+        &:focus {
+          transform: scale(1);
+        }
       }
     }
   }
-}
