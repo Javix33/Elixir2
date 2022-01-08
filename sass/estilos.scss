@@ -80,18 +80,15 @@
   
   //header// 
   .cabecera {
-    height: 11vw;
+    min-height: 11vw;
     width: 100%;
     @include bgblur();
     @extend .textos;
     border-bottom: $bordeBlanco;
-    @media screen and (max-width: 555px) {
-      height: 10vh;
-    }
     &__logo {
-      height: 8vw;
+      height: 9vw;
+      width: 9vw;
       border-radius: $bordeRedondeado;
-      border: $bordeBlanco;
       margin-top: 0.5%;
       margin-left: 2%;
     }
@@ -112,18 +109,6 @@
     .navbar-toggler {
       &-icon {
         background-image: url(../img_sitio_web/iconos/menu.png);
-      }
-    }
-    .menu__expand {
-      @media screen and (max-width: 991px) {
-        background-image: url(../img_sitio_web/transparencia-web.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        margin-top: 2.5vh;
-        background-color: $bgColorElixir;
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-        border: $bordeBlanco;
       }
     }
   }
@@ -280,6 +265,14 @@
     font-size: $sizeTextos;
     margin-bottom: 1vw;
     @include bordes();
+    &:hover {
+      transform: scale(1.2);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    &:focus {
+      transform: scale(1);
+    }
     @media screen and (max-width: 991px) {
       font-size: $textosMobile;
       background-color: black;
@@ -365,7 +358,13 @@
       margin-top: 3vw;
       height: auto;
       @include bordes;
-      @include bgblur;
+      @media screen and(min-width: 992px) {
+        @include bgblur();
+      }
+      @media screen and (max-width: 991px) {
+        font-size: $textosMobile;
+        background-color: black;
+      }
       &__card {
         display: flex;
         flex-direction: column;
@@ -393,6 +392,12 @@
           color: $colorTextos;
         }
       }
+    }
+  }
+  
+  .infografia {
+    @media screen and(max-width: 424px) {
+      display: none;
     }
   }
   

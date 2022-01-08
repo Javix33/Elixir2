@@ -102,21 +102,16 @@
 }
 
 .cabecera {
-  height: 11vw;
+  min-height: 11vw;
   width: 100%;
   background-color: 225, 255, 255, 7;
   backdrop-filter: blur(10px);
   border-bottom: 2px solid white;
 }
-@media screen and (max-width: 555px) {
-  .cabecera {
-    height: 10vh;
-  }
-}
 .cabecera__logo {
-  height: 8vw;
+  height: 9vw;
+  width: 9vw;
   border-radius: 10px;
-  border: 2px solid white;
   margin-top: 0.5%;
   margin-left: 2%;
 }
@@ -133,18 +128,6 @@
 }
 .cabecera .navbar-toggler-icon {
   background-image: url(../img_sitio_web/iconos/menu.png);
-}
-@media screen and (max-width: 991px) {
-  .cabecera .menu__expand {
-    background-image: url(../img_sitio_web/transparencia-web.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 2.5vh;
-    background-color: #0C3559;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    border: 2px solid white;
-  }
 }
 
 .footer {
@@ -320,6 +303,14 @@
   border-color: white;
   border-style: solid;
 }
+.btn:hover {
+  transform: scale(1.2);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.btn:focus {
+  transform: scale(1);
+}
 @media screen and (max-width: 991px) {
   .btn {
     font-size: 4vw;
@@ -422,8 +413,18 @@
   border-radius: 20px;
   border-color: white;
   border-style: solid;
-  background-color: 225, 255, 255, 7;
-  backdrop-filter: blur(10px);
+}
+@media screen and (min-width: 992px) {
+  .procesos__mapa {
+    background-color: 225, 255, 255, 7;
+    backdrop-filter: blur(10px);
+  }
+}
+@media screen and (max-width: 991px) {
+  .procesos__mapa {
+    font-size: 4vw;
+    background-color: black;
+  }
 }
 .procesos__mapa__card {
   display: flex;
@@ -451,6 +452,12 @@
   font-family: "Roboto", sans-serif;
   font-size: 2vw;
   color: white;
+}
+
+@media screen and (max-width: 424px) {
+  .infografia {
+    display: none;
+  }
 }
 
 .elixir {
