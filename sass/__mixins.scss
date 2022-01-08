@@ -3,6 +3,10 @@
   backdrop-filter: blur(10px);
 }
 
+@mixin bgbtn {
+  background-color: black;
+}
+
 @mixin bordes {
   border: 1px;
   border-radius: 20px;

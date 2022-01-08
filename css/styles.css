@@ -319,12 +319,17 @@
   border-radius: 20px;
   border-color: white;
   border-style: solid;
-  background-color: 225, 255, 255, 7;
-  backdrop-filter: blur(10px);
 }
 @media screen and (max-width: 991px) {
   .btn {
     font-size: 4vw;
+    background-color: black;
+  }
+}
+@media screen and (min-width: 992px) {
+  .btn {
+    background-color: 225, 255, 255, 7;
+    backdrop-filter: blur(10px);
   }
 }
 

@@ -280,9 +280,12 @@
     font-size: $sizeTextos;
     margin-bottom: 1vw;
     @include bordes();
-    @include bgblur();
     @media screen and (max-width: 991px) {
       font-size: $textosMobile;
+      background-color: black;
+    }
+    @media screen and(min-width:992px) {
+      @include bgblur();
     }
   }
   
