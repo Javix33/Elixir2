@@ -113,6 +113,7 @@
   width: 9vw;
   margin-top: 0.5%;
   margin-left: 2%;
+  border: none;
 }
 .cabecera__vinculo:focus {
   transform: scale(1);
