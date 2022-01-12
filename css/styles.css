@@ -124,6 +124,7 @@
     transform: scale(1.1);
     transition: all 0.5s;
     cursor: pointer;
+    color: #3b83bd;
   }
 }
 .cabecera .navbar-toggler-icon {
@@ -131,10 +132,12 @@
 }
 
 .footer {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  background-color: 225, 255, 255, 7;
+  backdrop-filter: blur(10px);
   height: 14vw;
   width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   border-top: 2px solid white;
   display: grid;
   grid-template-areas: ". . . redes" "texto texto texto redes" ". . . redes";
@@ -177,6 +180,8 @@
   animation-play-state: paused;
   transform: scale(1.2);
   transition: all 0.5s;
+  background-color: #3b83bd;
+  border-color: #3b83bd;
   cursor: pointer;
 }
 .footer__redes--icono:focus {
@@ -220,7 +225,7 @@
   color: white;
   display: inline;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-items: center;
   align-items: center;
 }
@@ -304,9 +309,12 @@
   border-style: solid;
 }
 .btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
   transition: all 0.3s;
   cursor: pointer;
+  background-color: white;
+  color: black;
+  font-family: "Roboto", sans-serif;
 }
 .btn:focus {
   transform: scale(1);
@@ -349,6 +357,7 @@
   flex-direction: row;
   align-items: center;
   justify-items: center;
+  width: 100%;
 }
 .procesos__card--derecha {
   flex-direction: row-reverse;
@@ -362,10 +371,21 @@
   border-style: solid;
   display: inline;
 }
+@media screen and (max-width: 991px) {
+  .procesos__img {
+    width: 30vw;
+    height: 30vw;
+  }
+}
 .procesos__info {
   margin: 5%;
   width: 50%;
   display: inline;
+}
+@media screen and (max-width: 991px) {
+  .procesos__info {
+    width: 65%;
+  }
 }
 .procesos__info__titulo {
   text-align: center;
@@ -383,6 +403,7 @@
   font-size: 2vw;
   color: white;
   text-align: center;
+  width: 100%;
 }
 @media screen and (max-width: 991px) {
   .procesos__info__texto {
