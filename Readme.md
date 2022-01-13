@@ -4,4 +4,4 @@ vinculo del sitio
 https://javix33.github.io/Elixir2-AlbertoGarcia/
 
 vinculo del servidor 000webhost
-https://jalberto-elixir.000webhostapp.com/
+https://jalberto-elixir-2.000webhostapp.com/
