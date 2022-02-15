@@ -1,8 +1,7 @@
 //nodo principal
 let mainContainer = document.getElementById("main");
 //inicio webapp
-let usuario = document.getElementById("userName");
-let user = usuario.value;
+let user = prompt("¿cual es tu nombre?") //usuario.value;
 let date = new Date();
 let today = date.getDay();
 //array
@@ -25,7 +24,7 @@ bienvenida.className = "data__inicial";
 bienvenida.id = "userWelcome";
 //nodo de producto
 
-let productToUse = document.createElement("article");
+/*let productToUse = document.createElement("article");
 productToUse.className = "data__inicial";
 productToUse.id = "userProduct";
 productToUse.innerHTML = ` <form action="" method="POST" class="data__inicial">
@@ -36,56 +35,56 @@ productToUse.innerHTML = ` <form action="" method="POST" class="data__inicial">
 <button id="botonProducto" class="botonIngreso" type="submit">
 Enviar
 </button>
-</form>`
+</form>`*/
 
 switch (today) {
   case today = 0:
     bienvenida.innerHTML = `<p id="saludoRespuesta">
     ${welcome} quiza no es el mejor día para beber`;
     mainContainer.appendChild(bienvenida);
-    mainContainer.appendChild(productToUse);
+    //mainContainer.appendChild(productToUse);
     break;
   case today = 1:
     bienvenida.innerHTML = `<p id="saludoRespuesta">
     ${welcome} inicio de semana, ten cuidado con tu consumo.`;
     mainContainer.appendChild(bienvenida);
-    mainContainer.appendChild(productToUse);
+    //mainContainer.appendChild(productToUse);
     break;
   case today = 2:
     bienvenida.innerHTML = `<p id="saludoRespuesta">
     ${welcome} recupera energia, con moderación.`;
     mainContainer.appendChild(bienvenida);
-    mainContainer.appendChild(productToUse);
+    //mainContainer.appendChild(productToUse);
     break;
   case today = 3:
     bienvenida.innerHTML = `<p id="saludoRespuesta">
     ${welcome} ombligo de semana un par de copas ayudarán.`;
     mainContainer.appendChild(bienvenida);
-    mainContainer.appendChild(productToUse);
+    //mainContainer.appendChild(productToUse);
     break;
   case today = 4:
     bienvenida.innerHTML = `<p id="saludoRespuesta">
     ${welcome} ya casi es fin de semana, fuerza.`;
     mainContainer.appendChild(bienvenida);
-    mainContainer.appendChild(productToUse);
+    //mainContainer.appendChild(productToUse);
     break;
   case today = 5:
     bienvenida.innerHTML = `<p id="saludoRespuesta">
     ${welcome} es viernes y el cuerpo lo sabe, si tomas no conduzcas.`;
     mainContainer.appendChild(bienvenida);
-    mainContainer.appendChild(productToUse);
+    //mainContainer.appendChild(productToUse);
     break;
   case today = 6:
     bienvenida.innerHTML = `<p id="saludoRespuesta">
     ${welcome} se nos fue la semana, tiempo de celebrar.`;
     mainContainer.appendChild(bienvenida);
-    mainContainer.appendChild(productToUse);
+    //mainContainer.appendChild(productToUse);
     break;
   default:
     bienvenida.innerHTML = `<p id="saludoRespuesta">
     ${welcome} no parece un mal dia para un poco de mezcal`;
     mainContainer.appendChild(bienvenida);
-    mainContainer.appendChild(productToUse);
+    //mainContainer.appendChild(productToUse);
 };
 //nodo respuesta de producto
 let respuestaProducto = document.createElement("article");
@@ -93,7 +92,7 @@ respuestaProducto.className = "data__inicial";
 respuestaProducto.id = "productAnswer";
 
 let productSelection = document.getElementById("seleccionProducto");
-let userBebida = productSelection.value;
+let userBebida = prompt("¿que bebida de Elixir utilizaras? Espadin, Naranja, Maracuya o Lichi"); //productSelection.value;
 userBebida = userBebida.toLowerCase();
 
 //nodo mostrar recetas
@@ -120,16 +119,9 @@ recipesShowing.innerHTML = `<aside class="receta">
 let recipeInput = document.createElement("article");
 recipeInput.className = "data__inicial";
 recipeInput.id = "recipeInput";
-recipeInput.innerHTML = `<form class="data__inicial" action="" method="POST">
-<label class="label__input" for="receta">
-  Selecciona la receta que quieres preparar ingresando unicamente el numero de la que elijas, ejemplo, para preparar una "mezcalita de jamaica" ingresa solo 2
-</label>
-<input id="recipeSelection" type="text" name="receta" placeholder="Receta elegida" required>
-<button id="buttonRecipe" type="submit" class="botonIngreso">
-  Enviar
-</button>
-</form>`
-  //nodo de seleccion cantidad
+
+
+//nodo de seleccion cantidad
 let proportion = document.createElement("article");
 proportion.className = "data__inicial";
 proportion.id = "proportionInput";
@@ -165,10 +157,12 @@ if (userBebida == "naranja") {
   respuestaProducto.innerHTML = `<p class="contestacion">
 Procedamos a preparar algo con tu Mezcal Espadin de Elixir.
 </p>`;
+
+  //recipeInput.innerHTML = prompt("Selecciona la receta que quieres preparar ingresando unicamente el numero de la que elijas, ejemplo, para preparar una mezcalita de jamaica ingresa solo 2");
   mainContainer.appendChild(respuestaProducto);
   mainContainer.appendChild(recipesShowing);
-  mainContainer.appendChild(recipeInput);
-  mainContainer.appendChild(proportion);
+  //mainContainer.appendChild(recipeInput);
+  //mainContainer.appendChild(proportion);
 
 
   let recipeLimon = [
@@ -196,14 +190,14 @@ Procedamos a preparar algo con tu Mezcal Espadin de Elixir.
     recipeJamaica,
     receipeTamarindo
   ];
-  let seleccionReceta = recipeInput.value;
+  let seleccionReceta = prompt("introduce el numero de la receta elegida, 1.-Mezcalita de limon, 2.-Mezcalita de jamaica, 3.-Mezcalita de tamarindo"); //recipeInput.value;
   seleccionReceta = parseInt(seleccionReceta) - 1;
 
 
-  let recetaElegida = recipes[0];
+  let recetaElegida = recipes[seleccionReceta];
 
   let recetaFinal = [];
-  let mililitrosPorPreparar = document.getElementById("ingresoProportion");
+  let mililitrosPorPreparar = prompt("¿Qué cantidad en mililitros deseas preparar de esta receta?"); //document.getElementById("ingresoProportion");
 
   let volumen = mililitrosPorPreparar;
   volumen = parseInt(volumen) / 1000;
@@ -224,7 +218,7 @@ Procedamos a preparar algo con tu Mezcal Espadin de Elixir.
   let rondasInput = document.createElement("article");
   rondasInput.className = "data__inicial";
   rondasInput.id = "rondas";
-  rondasInput.innerHTML = `<form action="POST" class="data__inicial">
+  /*rondasInput.innerHTML = `<form action="POST" class="data__inicial">
 <label for="caballitos" class="label__input">
 ¿Cuantos caballitos serviras?
 </label>
@@ -232,7 +226,7 @@ Procedamos a preparar algo con tu Mezcal Espadin de Elixir.
 <button id="buttonCaballitos" class="botonIngreso">
   Enviar
 </button>
-</form>`
+</form>`*/
 
   switch (seleccionReceta) {
     case 0:
