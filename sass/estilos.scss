@@ -657,3 +657,87 @@
       }
     }
   }
+  
+  //recetario
+  .recetario {
+    margin: 3%;
+    min-height: calc(100vh - 11vw - 14vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .titulo__bienvenida {
+    font-family: $roboto;
+    font-size: $sizeSubtitulos;
+    color: $colorTextos;
+  }
+  
+  .data__inicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .label__input {
+    font-family: $roboto;
+    font-size: $sizeTextos;
+    color: $colorTextos;
+    margin: 2vw;
+    text-align: center;
+  }
+  
+  #nombreUsuario {
+    font-family: $roboto;
+    font-size: $sizeTextos;
+    margin: 2w;
+  }
+  
+  .botonIngreso {
+    margin: 2vw;
+    font-family: $roboto;
+    font-size: $sizeTextos;
+    border: none;
+    background: none;
+    color: $colorTextos;
+    border-radius: 10%;
+     :hover {
+      cursor: pointer;
+    }
+  }
+  
+  #saludoRespuesta {
+    font-family: $roboto;
+    font-size: $sizeTextos;
+    color: $colorTextos;
+    text-align: center;
+  }
+  
+  .ingreso__producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contestacion {
+    font-family: $roboto;
+    font-size: $sizeTextos;
+    color: $colorTextos;
+    text-align: center;
+  }
+  
+  .show__recipes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .receta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: $roboto;
+    font-size: $sizeTextos;
+    color: $colorTextos;
+  }
