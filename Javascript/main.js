@@ -1,335 +1,393 @@
 //nodo principal
-let mainContainer = document.getElementById("main");
+const MAINCONTAINER = document.getElementById("main");
+//nodo welcome
+let welcome = document.getElementById("welcome");
 //nodo nombre
-let bloqueNombre = document.getElementById("userData");
-let botonSiguiente = document.createElement("button");
-botonSiguiente.className = "botonIngreso";
-botonSiguiente.id = "nameNext";
-botonSiguiente.innerHTML = `Siguiente`;
-//obteniendo nombre
-let usuario = document.getElementById("userName");
-let buttonName = document.getElementById("buttonName");
+const NODONAME = document.createElement("article");
+NODONAME.className = "data__inicial";
+NODONAME.id = "NODONAME";
+NODONAME.innerHTML = `<form class="data__inicial" action="" method="POST">
+        <label class="label__input" for="nombre">
+          Ingresa tu nombre
+        </label>
+        <input id="userName" type="text" name="nombre" placeholder="Nombre completo" required>    
+      </form>`;
+//nodo Fecha
+let date = new Date();
+let today = date.getDay();
+//array
+const WEEKDAYS = [
+  "domingo",
+  "lunes",
+  "martes",
+  "miercoles",
+  "jueves",
+  "viernes",
+  "sabado"
+];
+//propiedad length
+let dayName = WEEKDAYS[today];
+//nodo de producto
+
+const PRODUCTTOUSE = document.createElement("article");
+PRODUCTTOUSE.className = "data__inicial";
+PRODUCTTOUSE.id = "userProduct";
+PRODUCTTOUSE.innerHTML = ` <form id="productForm" action="" method="POST" class="data__inicial">
+  <label class="label__input" for="producto">
+    ¿Qué bebida de Elixir utilizarás? (Espadin, Naranja, Lichi o Maracuya)
+  </label>
+  <input type="text" name="producto" placeholder="Nombre de producto" id="seleccionProducto" required>
+</form>`;
+//nodo respuesta de producto
+const RESPUESTAPRODUCT = document.createElement("article");
+RESPUESTAPRODUCT.className = "data__inicial";
+RESPUESTAPRODUCT.id = "productAnswer";
+//nodo mostrar recetas
+const RECIPESSHOWING = document.createElement("article");
+RECIPESSHOWING.className = "data__inicial";
+RECIPESSHOWING.id = "RECIPESSHOWING";
+RECIPESSHOWING.innerHTML = `<aside class="receta">
+  <p>
+    1.- Mezcalita de limon: una deliciosa mezcla de limon y pepino con el toque especial del Mecal Espadin de Elixir
+  </p>
+</aside>
+<aside class="receta">
+  <p>
+    2.- Mezcalita de jamaica: El delicioso sabor de la flor de jamaica ideal para cualquier situación.
+  </p>
+</aside>
+<aside class="receta">
+  <p>
+    3.-Mezcalita de tamarindo: Delicioso sabor a tamarindo que no debes dejar de probar.
+  </p>
+</aside>`;
+//nodo seleccion de receta
+const RECIPEINPUT = document.createElement("article");
+RECIPEINPUT.className = "data__inicial";
+RECIPEINPUT.id = "RECIPEINPUT";
+RECIPEINPUT.innerHTML = `<form id="recipeForm" class="data__inicial" action="" method="POST">
+  <label class="label__input" for="receta">
+    Selecciona la receta que quieres preparar ingresando unicamente el numero de la que elijas, ejemplo, para preparar una "mezcalita de jamaica" ingresa solo "2"
+  </label>
+  <input id="recipeSelection" type="text" name="receta" placeholder="Receta elegida" required>
+</form>`;
+//nodo respuesta producto
+const RECIPEANSWER = document.createElement("article");
+RECIPEANSWER.className = "data__inicial";
+RECIPEANSWER.id = "RECIPEANSWER";
+//nodo proporcion
+//nodo de seleccion cantidad
+const PROPORTION = document.createElement("article");
+PROPORTION.className = "data__inicial";
+PROPORTION.id = "PROPORTIONInput";
+PROPORTION.innerHTML = `<form id="PROPORTIONForm" action="POST" class="data__inicial">
+  <label class="label__input" for="volumen">
+  ¿Qué cantidad en mililitros de esta receta deseas preparar?
+  </label>
+  <input id="ingresoPROPORTION" placeholder="ingresa cantidad en ml." type="text" name="volumen" required>
+  </form>`;
+//nodo respuesta proporcion
+const PROPORTIONANSWER = document.createElement("article");
+PROPORTIONANSWER.className = "data__inicial";
+PROPORTIONANSWER.id = "PROPORTIONANSWER";
+//creacion de botones
+let buttonStart = document.createElement("button");
+buttonStart.className = "botonIngreso";
+buttonStart.id = "buttonStart";
+buttonStart.innerHTML = `comenzar`;
+//buttonName
+let buttonName = document.createElement("button");
+buttonName.className = "botonIngreso";
+buttonName.id = "buttonName";
+buttonName.innerHTML = `Enviar`;
+//button saludoNext
+let buttonSaludoNext = document.createElement("button");
+buttonSaludoNext.className = "botonIngreso";
+buttonSaludoNext.id = "buttonSaludoNext";
+buttonSaludoNext.innerHTML = `Siguiente`;
+//boton producto
+let buttonProduct = document.createElement("button");
+buttonProduct.className = "botonIngreso";
+buttonProduct.id = "buttonProduct";
+buttonProduct.innerHTML = `Enviar`;
+//boton reinicio
+let restartButton = document.createElement("button");
+restartButton.className = "botonIngreso";
+restartButton.id = "restartButton";
+restartButton.innerHTML = `<button id="buttonName" class="botonIngreso" type="submit"> 
+        Reiniciar recetario
+      </button>`;
+restartButton.onclick = (e) => {
+  RESPUESTAPRODUCT.remove();
+  restartButton.remove();
+  PROPORTIONANSWER.remove();
+  MAINCONTAINER.appendChild(welcome);
+  welcome.appendChild(buttonStart);
+};
+//boton seleccion receta
+let buttonRecipe = document.createElement("button");
+buttonRecipe.className = "botonIngreso";
+buttonRecipe.id = "buttonRecipe";
+buttonRecipe.innerHTML = `Enviar`;
+//boton proporcion
+let buttonPROPORTION = document.createElement("button");
+buttonPROPORTION.className = "botonIngreso";
+buttonPROPORTION.id = "buttonPROPORTION";
+buttonPROPORTION.innerHTML = `Enviar`;
+
+//storage
+//nombre
+let nombreStorage = localStorage.getItem("nombre");
+console.log(nombreStorage)
+const VERIFICARNOMBRE = () => {
+  if (nombreStorage && nombreStorage !== undefined) {
+    NODONAME.remove();
+    let saludoWelcome = `Hola ${nombreStorage}, hoy es ${dayName},`;
+    //nodo de saludo
+    let saludo = document.createElement("article");
+    saludo.className = "data__inicial";
+    saludo.id = "userWelcome";
+    switch (today) {
+      case today = 0:
+        saludo.innerHTML = `<p id="saludoRespuesta">
+            ${saludoWelcome} quiza no es el mejor día para beber`;
+        break;
+      case today = 1:
+        saludo.innerHTML = `<p id="saludoRespuesta">
+            ${saludoWelcome} inicio de semana, ten cuidado con tu consumo.`;
+        break;
+      case today = 2:
+        saludo.innerHTML = `<p id="saludoRespuesta">
+            ${saludoWelcome} recupera energia, con moderación.`;
+        break;
+      case today = 3:
+        saludo.innerHTML = `<p id="saludoRespuesta">
+            ${saludoWelcome} ombligo de semana un par de copas ayudarán.`;
+        break;
+      case today = 4:
+        saludo.innerHTML = `<p id="saludoRespuesta">
+            ${saludoWelcome} ya casi es fin de semana, fuerza.`;
+        break;
+      case today = 5:
+        saludo.innerHTML = `<p id="saludoRespuesta">
+            ${saludoWelcome} es viernes y el cuerpo lo sabe, si tomas no conduzcas.`;
+
+        break;
+      case today = 6:
+        saludo.innerHTML = `<p id="saludoRespuesta">
+            ${saludoWelcome} se nos fue la semana, tiempo de celebrar.`;
+
+        break;
+      default:
+        saludo.innerHTML = `<p id="saludoRespuesta">
+            ${saludoWelcome} no parece un mal dia para un poco de mezcal`;
+
+    };
+    MAINCONTAINER.appendChild(saludo);
+    saludo.appendChild(buttonSaludoNext);
+  } else {
+    MAINCONTAINER.appendChild(NODONAME);
+    NODONAME.appendChild(buttonName);
+  };
+};
+//funciones
+function calcularProporcion(recetaElegida, proporcion, recetaFinal) {
+  for (ingrediente of recetaElegida) {
+    resultado = (ingrediente = ingrediente * proporcion);
+    recetaFinal.push(resultado);
+  };
+};
+//arrays recetas
+const RECIPELIMON = [
+  agua = 800,
+  mezcal = 64,
+  jugoDeLimon = 80,
+  pepino = 2,
+  miel = 5
+];
+const RECIPEJAMAICA = [
+  agua = 800,
+  mezcal = 64,
+  jamaica = 80,
+  miel = 5
+];
+const RECIPETAMARINDO = [
+  agua = 800,
+  mezcal = 64,
+  Tamarindo = 80,
+  miel = 5
+];
+const RECIPES = [
+  RECIPELIMON,
+  RECIPEJAMAICA,
+  RECIPETAMARINDO
+];
+let recetaFinal = [];
+
+
+
+//inicio app
+
+welcome.appendChild(buttonStart);
+buttonStart.onclick = (e) => {
+  e.preventDefault();
+  welcome.remove();
+  VERIFICARNOMBRE();
+};
 buttonName.onclick = (e) => {
   e.preventDefault();
-  localStorage.setItem("nombre", usuario.value);
-  buttonName.remove();
-  mainContainer.appendChild(botonSiguiente);
-  bloqueNombre.remove();
-};
-botonSiguiente.onclick = (e) => {
-  e.preventDefault();
-  botonSiguiente.remove();
-  let user = usuario.value;
-  let date = new Date();
-  let today = date.getDay();
-  //array
-  let weekDays = [
-    "domingo",
-    "lunes",
-    "martes",
-    "miercoles",
-    "jueves",
-    "viernes",
-    "sabado"
-  ];
-  //propiedad length
-  let dayName = weekDays[today];
-  let welcome = `Hola ${user}, la semana tiene ${weekDays.length} días y hoy es ${dayName},`;
-  //
-  //nodo de bienvenida
-  let bienvenida = document.createElement("article");
-  bienvenida.className = "data__inicial";
-  bienvenida.id = "userWelcome";
+  let userName = document.getElementById("userName");
+  nombreStorage = localStorage.setItem("nombre", userName.value);
+  NODONAME.remove();
+  //nodo de saludo
+  let saludo = document.createElement("article");
+  saludo.className = "data__inicial";
+  saludo.id = "userWelcome";
+  let saludoWelcome = `Hola ${userName.value}, hoy es ${dayName},`;
   switch (today) {
     case today = 0:
-      bienvenida.innerHTML = `<p id="saludoRespuesta">
-        ${welcome} quiza no es el mejor día para beber`;
-      mainContainer.appendChild(bienvenida);
+      saludo.innerHTML = `<p id="saludoRespuesta">
+          ${saludoWelcome} quiza no es el mejor día para beber`;
       break;
     case today = 1:
-      bienvenida.innerHTML = `<p id="saludoRespuesta">
-        ${welcome} inicio de semana, ten cuidado con tu consumo.`;
-      mainContainer.appendChild(bienvenida);
+      saludo.innerHTML = `<p id="saludoRespuesta">
+          ${saludoWelcome} inicio de semana, ten cuidado con tu consumo.`;
       break;
     case today = 2:
-      bienvenida.innerHTML = `<p id="saludoRespuesta">
-        ${welcome} recupera energia, con moderación.`;
-      mainContainer.appendChild(bienvenida);
+      saludo.innerHTML = `<p id="saludoRespuesta">
+          ${saludoWelcome} recupera energia, con moderación.`;
       break;
     case today = 3:
-      bienvenida.innerHTML = `<p id="saludoRespuesta">
-        ${welcome} ombligo de semana un par de copas ayudarán.`;
-      mainContainer.appendChild(bienvenida);
+      saludo.innerHTML = `<p id="saludoRespuesta">
+          ${saludoWelcome} ombligo de semana un par de copas ayudarán.`;
       break;
     case today = 4:
-      bienvenida.innerHTML = `<p id="saludoRespuesta">
-        ${welcome} ya casi es fin de semana, fuerza.`;
-      mainContainer.appendChild(bienvenida);
+      saludo.innerHTML = `<p id="saludoRespuesta">
+          ${saludoWelcome} ya casi es fin de semana, fuerza.`;
       break;
     case today = 5:
-      bienvenida.innerHTML = `<p id="saludoRespuesta">
-        ${welcome} es viernes y el cuerpo lo sabe, si tomas no conduzcas.`;
-      mainContainer.appendChild(bienvenida);
+      saludo.innerHTML = `<p id="saludoRespuesta">
+          ${saludoWelcome} es viernes y el cuerpo lo sabe, si tomas no conduzcas.`;
 
       break;
     case today = 6:
-      bienvenida.innerHTML = `<p id="saludoRespuesta">
-        ${welcome} se nos fue la semana, tiempo de celebrar.`;
-      mainContainer.appendChild(bienvenida);
+      saludo.innerHTML = `<p id="saludoRespuesta">
+          ${saludoWelcome} se nos fue la semana, tiempo de celebrar.`;
 
       break;
     default:
-      bienvenida.innerHTML = `<p id="saludoRespuesta">
-        ${welcome} no parece un mal dia para un poco de mezcal`;
-      mainContainer.appendChild(bienvenida);
+      saludo.innerHTML = `<p id="saludoRespuesta">
+          ${saludoWelcome} no parece un mal dia para un poco de mezcal`;
 
   };
+  MAINCONTAINER.appendChild(saludo);
+  saludo.appendChild(buttonSaludoNext);
+};
+buttonSaludoNext.onclick = (e) => {
+  e.preventDefault();
+  let saludo = document.getElementById("userWelcome");
+  saludo.remove();
+  MAINCONTAINER.appendChild(PRODUCTTOUSE);
+  let productForm = document.getElementById("productForm");
+  productForm.appendChild(buttonProduct);
 
-  let bienvenidaNext = document.createElement("button");
-  bienvenidaNext.className = "botonIngreso";
-  bienvenidaNext.id = "bienvenidaNext";
-  bienvenidaNext.innerHTML = `Siguiente`;
-  bienvenida.append(bienvenidaNext);
+};
+buttonProduct.onclick = (e) => {
+  e.preventDefault();
+  let productInput = document.getElementById("seleccionProducto");
+  let userBebida = productInput.value;
+  userBebida = userBebida.toLowerCase();
+  if (userBebida == "naranja") {
+    RESPUESTAPRODUCT.innerHTML = `<p class="contestacion">
+      Solo añade hielo, algunos trozos de fruta y disfruta de tu Mezcal Elixir sabor Naranja.
+    </p>`;
+    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
+    PRODUCTTOUSE.remove();
+    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
+    RESPUESTAPRODUCT.appendChild(restartButton);
 
-  bienvenidaNext.onclick = (e) => {
-    e.preventDefault();
-    bienvenida.remove();
-    bienvenidaNext.remove();
-    //nodo de producto
+  } else if (userBebida == "maracuya") {
 
-    let productToUse = document.createElement("article");
-    productToUse.className = "data__inicial";
-    productToUse.id = "userProduct";
-    productToUse.innerHTML = ` <form action="" method="POST" class="data__inicial">
-      <label class="label__input" for="producto">
-        ¿Qué bebida de Elixir utilizarás? (Espadin, Naranja, Lichi o Maracuya)
-      </label>
-      <input type="text" name="producto" placeholder="Nombre de producto" id="seleccionProducto" required>
-      <button id="botonProducto" class="botonIngreso" type="submit">
-        Enviar
-      </button>
-    </form>`
-    mainContainer.appendChild(productToUse);
+    RESPUESTAPRODUCT.innerHTML = `<p class="contestacion">
+      Solo añade hielo, algunos trozos de fruta y disfruta de tu Mezcal Elixir sabor Maracuya.
+    </p>`;
+    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
+    PRODUCTTOUSE.remove();
+    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
+    RESPUESTAPRODUCT.appendChild(restartButton);
 
-    let seleccionProducto = document.getElementById("seleccionProducto");
+  } else if (userBebida == "lichi") {
 
-    let botonProducto = document.getElementById("botonProducto");
+    RESPUESTAPRODUCT.innerHTML = `<p class="contestacion">
+      Solo añade hielo, algunos trozos de fruta y disfruta de tu Mezcal Elixir sabor Lichi.
+    </p>`;
+    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
+    PRODUCTTOUSE.remove();
+    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
+    RESPUESTAPRODUCT.appendChild(restartButton);
+  } else {
+    RESPUESTAPRODUCT.innerHTML = `<p class="contestacion">
+      Procedamos a preparar algo con tu Mezcal Espadin de Elixir.
+    </p>`;
 
-    botonProducto.onclick = (e) => {
-      e.preventDefault();
-      localStorage.setItem("producto", seleccionProducto.value);
-      botonProducto.remove();
-
-      //nodo respuesta de producto
-      let respuestaProducto = document.createElement("article");
-      respuestaProducto.className = "data__inicial";
-      respuestaProducto.id = "productAnswer";
-
-      let productSelection = document.getElementById("seleccionProducto");
-      let userBebida = productSelection.value;
-      userBebida = userBebida.toLowerCase();
-      let restartButton = document.createElement("button");
-      restartButton.className = "botonIngreso";
-      restartButton.id = "restartButton";
-      restartButton.innerHTML = `<button id="buttonName" class="botonIngreso" type="submit"> 
-        Reiniciar recetario
-      </button>`
-      if (userBebida == "naranja") {
-        respuestaProducto.innerHTML = `<p class="contestacion">
-          Solo añade hielo, algunos trozos de fruta y disfruta de tu Mezcal Elixir sabor Naranja.
-        </p>`;
-        mainContainer.appendChild(respuestaProducto);
-        productToUse.remove();
-        respuestaProducto.appendChild(restartButton);
-        restartButton.onclick = (e) => {
-          e.preventDefault;
-          location.reload();
-        }
-      } else if (userBebida == "maracuya") {
-
-        respuestaProducto.innerHTML = `<p class="contestacion">
-          Solo añade hielo, algunos trozos de fruta y disfruta de tu Mezcal Elixir sabor Maracuya.
-        </p>`;
-        mainContainer.appendChild(respuestaProducto);
-
-        productToUse.remove();
-        respuestaProducto.appendChild(restartButton);
-        restartButton.onclick = (e) => {
-          e.preventDefault;
-          location.reload();
-        }
-      } else if (userBebida == "lichi") {
-
-        respuestaProducto.innerHTML = `<p class="contestacion">
-          Solo añade hielo, algunos trozos de fruta y disfruta de tu Mezcal Elixir sabor Lichi.
-        </p>`;
-        mainContainer.appendChild(respuestaProducto);
-
-        productToUse.remove();
-        respuestaProducto.appendChild(restartButton);
-        restartButton.onclick = (e) => {
-          e.preventDefault;
-          location.reload();
-        }
-
-      } else {
-        respuestaProducto.innerHTML = `<p class="contestacion">
-        Procedamos a preparar algo con tu Mezcal Espadin de Elixir.
-      </p>`;
-        mainContainer.appendChild(respuestaProducto);
-        productToUse.remove();
-        //nodo mostrar recetas
-        let recipesShowing = document.createElement("article");
-        recipesShowing.className = "data__inicial";
-        recipesShowing.id = "recipesShowing";
-        recipesShowing.innerHTML = `<aside class="receta">
-          <p>
-            1.- Mezcalita de limon: una deliciosa mezcla de limon y pepino con el toque especial del Mecal Espadin de Elixir
-          </p>
-        </aside>
-        <aside class="receta">
-          <p>
-            2.- Mezcalita de jamaica: El delicioso sabor de la flor de jamaica ideal para cualquier situación.
-          </p>
-        </aside>
-        <aside class="receta">
-          <p>
-            3.-Mezcalita de tamarindo: Delicioso sabor a tamarindo que no debes dejar de probar.
-          </p>
-        </aside>`
-
-        respuestaProducto.appendChild(recipesShowing);
-        //nodo seleccion de receta
-        let recipeInput = document.createElement("article");
-        recipeInput.className = "data__inicial";
-        recipeInput.id = "recipeInput";
-        recipeInput.innerHTML = `<form class="data__inicial" action="" method="POST">
-          <label class="label__input" for="receta">
-            Selecciona la receta que quieres preparar ingresando unicamente el numero de la que elijas, ejemplo, para preparar una "mezcalita de jamaica" ingresa solo "2"
-          </label>
-          <input id="recipeSelection" type="text" name="receta" placeholder="Receta elegida" required>
-          <button id="buttonRecipe" type="submit" class="botonIngreso">
-            Enviar
-          </button>
-        </form>`
-        respuestaProducto.appendChild(recipeInput);
-        let recipeSelection = document.getElementById("recipeSelection");
-        let buttonRecipe = document.getElementById("buttonRecipe");
-        buttonRecipe.onclick = (e) => {
-          e.preventDefault();
-          localStorage.setItem("recetaElegida", recipeSelection.value);
-          respuestaProducto.remove();
-          let recipeAnswer = document.createElement("article");
-          recipeAnswer.className = "data__inicial";
-          recipeAnswer.id = "recipeAnswer";
-          if (recipeSelection.value == 1) {
-            recipeAnswer.innerHTML = `<p class="label__input" id="recipeAnswer">
-              Elegiste la receta número 1 "mezcalita de limon"
-            </p>`
-          } else if (recipeSelection.value == 2) {
-            recipeAnswer.innerHTML = `<p class="label__input" id="recipeAnswer">
-              Elegiste la receta número 2 "mezcalita de jamaica"
-            </p>`
-          } else if (recipeSelection.value == 3) {
-            recipeAnswer.innerHTML = `<p class="label__input"       id="recipeAnswer">
-              Elegiste la receta número 3 "mezcalita de tamarindo"
-            </p>`
-          };
-          mainContainer.appendChild(recipeAnswer);
-
-          //nodo de seleccion cantidad
-          let proportion = document.createElement("article");
-          proportion.className = "data__inicial";
-          proportion.id = "proportionInput";
-          proportion.innerHTML = `<form action="POST" class="data__inicial">
-            <label class="label__input" for="volumen">
-            ¿Qué cantidad en mililitros de esta receta deseas preparar?
-            </label>
-            <input id="ingresoProportion" placeholder="ingresa cantidad en ml."             type="text" name="volumen" required>
-            <button id="buttonProportion" class="botonIngreso" type="submit">
-            Enviar
-            </button>
-            </form>`
-          recipeAnswer.appendChild(proportion);
-          let volumenPorPreparar = document.getElementById("ingresoProportion");
-          let buttonProportion = document.getElementById("buttonProportion");
-          buttonProportion.onclick = (e) => {
-            e.preventDefault();
-            localStorage.setItem("volumenPorPreparar", volumenPorPreparar.value);
-            let recipeLimon = [
-              agua = 800,
-              mezcal = 64,
-              jugoDeLimon = 80,
-              pepino = 2,
-              miel = 5
-            ];
-            let recipeJamaica = [
-              agua = 800,
-              mezcal = 64,
-              jamaica = 80,
-              miel = 5
-            ];
-            let receipeTamarindo = [
-              agua = 800,
-              mezcal = 64,
-              Tamarindo = 80,
-              miel = 5
-            ];
-            let recipes = [
-              recipeLimon,
-              recipeJamaica,
-              receipeTamarindo
-            ];
-            let seleccionReceta = recipeSelection.value;
-            seleccionReceta = parseInt(seleccionReceta) - 1;
-            let recetaElegida = recipes[seleccionReceta];
-
-            let recetaFinal = [];
-            let mililitrosPorPreparar = volumenPorPreparar.value;
-
-            let volumen = mililitrosPorPreparar;
-            volumen = parseInt(volumen) / 1000;
-
-            function calcularProporcion(recetaElegida, proporcion, recetaFinal) {
-
-              for (ingrediente of recetaElegida) {
-                resultado = (ingrediente = ingrediente * proporcion);
-                recetaFinal.push(resultado)
-              }
-            };
-            calcularProporcion(recetaElegida, volumen, recetaFinal);
-            //respuesta proporcion
-            let proportionAnswer = document.createElement("article");
-            proportionAnswer.className = "data__inicial";
-            proportionAnswer.id = "proportionAnswer";
-            switch (seleccionReceta) {
-              case 0:
-                proportionAnswer.innerHTML = `<p class="label__input">para la mezcalita de limon necesitaras ${recetaFinal.length} ingredientes "agua: ${recetaFinal[0]}ml, mezcal: ${recetaFinal[1]} ml, jugo de limon: ${recetaFinal[2]} ml, pepinos: ${recetaFinal[3]} piezas, miel: ${recetaFinal[4]} cucharadas".</p>`;
-                break;
-
-              case 1:
-                proportionAnswer.innerHTML = `<p class="label__input">para la mezcalita de jamaica necesitaras ${recetaFinal.length} ingredientes "agua: ${recetaFinal[0]} ml, mezcal: ${recetaFinal[1]} ml, jamaica: ${recetaFinal[2]} gramos, miel: ${recetaFinal[3]} cucharadas".</p>`;
-                break;
-              case 2:
-                proportionAnswer.innerHTML = `<p class="label__input">para la mezcalita de Tamarindo necesitaras ${recetaFinal.length} ingredientes "agua: ${recetaFinal[0]} ml, mezcal: ${recetaFinal[1]} ml, Tamarindo: ${recetaFinal[2]} gramos, miel: ${recetaFinal[3]} cucharadas".</p>`;
-                break;
-              default:
-                proportionAnswer.innerHTML = `<p class="label__input">La receta que seleccionaste es invalida, por favor refresca la pagina e intenta de nuevo.</p>`;
-            };
-            recipeAnswer.remove();
-            mainContainer.appendChild(proportionAnswer);
-            proportionAnswer.appendChild(restartButton);
-            restartButton.onclick = (e) => {
-              e.preventDefault;
-              location.reload();
-            }
-          }
-        }
-      }
-    }
+    PRODUCTTOUSE.remove();
+    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
+    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
+    RESPUESTAPRODUCT.appendChild(RECIPESSHOWING);
+    RESPUESTAPRODUCT.appendChild(RECIPEINPUT);
+    let recipeForm = document.getElementById("recipeForm");
+    recipeForm.appendChild(buttonRecipe);
   };
 };
+let recipeSelection;
+buttonRecipe.onclick = (e) => {
+  e.preventDefault();
+  recipeSelection = document.getElementById("recipeSelection");
+  RESPUESTAPRODUCT.remove();
+  if (recipeSelection.value == 1) {
+    RECIPEANSWER.innerHTML = `<p class="label__input" id="RECIPEANSWER">
+      Elegiste la receta número 1 "mezcalita de limon"
+    </p>`
+  } else if (recipeSelection.value == 2) {
+    RECIPEANSWER.innerHTML = `<p class="label__input" id="RECIPEANSWER">
+      Elegiste la receta número 2 "mezcalita de jamaica"
+    </p>`
+  } else if (recipeSelection.value == 3) {
+    RECIPEANSWER.innerHTML = `<p class="label__input"       id="RECIPEANSWER">
+      Elegiste la receta número 3 "mezcalita de tamarindo"
+    </p>`
+  };
+  MAINCONTAINER.appendChild(RECIPEANSWER);
+  RECIPEANSWER.appendChild(PROPORTION);
+  let PROPORTIONForm = document.getElementById("PROPORTIONForm");
+  PROPORTIONForm.appendChild(buttonPROPORTION);
+};
+buttonPROPORTION.onclick = (e) => {
+  e.preventDefault();
+  let mililitrosPorPreparar = document.getElementById("ingresoPROPORTION");
+  let recipeIndex = recipeSelection.value;
+  recipeIndex = parseInt(recipeIndex) - 1;
+  let recetaElegida = RECIPES[recipeIndex];
+  let volumen = parseInt(mililitrosPorPreparar.value) / 1000;
+  calcularProporcion(recetaElegida, volumen, recetaFinal);
+  switch (recipeIndex) {
+    case 0:
+      PROPORTIONANSWER.innerHTML = `<p class="label__input">para la mezcalita de limon necesitaras ${recetaFinal.length} ingredientes "agua: ${recetaFinal[0]}ml, mezcal: ${recetaFinal[1]} ml, jugo de limon: ${recetaFinal[2]} ml, pepinos: ${recetaFinal[3]} piezas, miel: ${recetaFinal[4]} cucharadas".</p>`;
+      break;
 
+    case 1:
+      PROPORTIONANSWER.innerHTML = `<p class="label__input">para la mezcalita de jamaica necesitaras ${recetaFinal.length} ingredientes "agua: ${recetaFinal[0]} ml, mezcal: ${recetaFinal[1]} ml, jamaica: ${recetaFinal[2]} gramos, miel: ${recetaFinal[3]} cucharadas".</p>`;
+      break;
+    case 2:
+      PROPORTIONANSWER.innerHTML = `<p class="label__input">para la mezcalita de Tamarindo necesitaras ${recetaFinal.length} ingredientes "agua: ${recetaFinal[0]} ml, mezcal: ${recetaFinal[1]} ml, Tamarindo: ${recetaFinal[2]} gramos, miel: ${recetaFinal[3]} cucharadas".</p>`;
+      break;
+    default:
+      PROPORTIONANSWER.innerHTML = `<p class="label__input">La receta que seleccionaste es invalida, por favor refresca la pagina e intenta de nuevo.</p>`;
+  };
+  RECIPEANSWER.remove();
+  MAINCONTAINER.appendChild(PROPORTIONANSWER);
+  PROPORTIONANSWER.appendChild(restartButton);
+};
 
 /*  
   //nodo rondas
@@ -365,16 +423,16 @@ botonSiguiente.onclick = (e) => {
       if (rondasRestantes >= rondaActual) {
         rondasAnswer.innerHTML = `<p class="label__input">${salida} eso es mas de la mitad, la noche es joven.
 </p>`;
-        mainContainer.append(rondasAnswer);
+        MAINCONTAINER.append(rondasAnswer);
       } else if (rondasRestantes < rondaActual && rondasRestantes >= rondaActual / 4) {
 
         rondasAnswer.innerHTML = `<p class="label__input">${salida} queda menos de la mitad de tu bebida.</p>`;
-        mainContainer.append(rondasAnswer);
+        MAINCONTAINER.append(rondasAnswer);
       } else {
 
 
         rondasAnswer.innerHTML = `<p class="label__input">${salida} es momento de conseguir mas Elixir.</p>`;
-        mainContainer.append(rondasAnswer);
+        MAINCONTAINER.append(rondasAnswer);
       }
     };
   };
