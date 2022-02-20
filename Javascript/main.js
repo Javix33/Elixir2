@@ -89,10 +89,11 @@ botonSiguiente.onclick = (e) => {
   bienvenidaNext.className = "botonIngreso";
   bienvenidaNext.id = "bienvenidaNext";
   bienvenidaNext.innerHTML = `Siguiente`;
-  mainContainer.append(bienvenidaNext);
+  bienvenida.append(bienvenidaNext);
 
   bienvenidaNext.onclick = (e) => {
     e.preventDefault();
+    bienvenida.remove();
     bienvenidaNext.remove();
     //nodo de producto
 
@@ -139,7 +140,7 @@ botonSiguiente.onclick = (e) => {
         </p>`;
         mainContainer.appendChild(respuestaProducto);
         productToUse.remove();
-        mainContainer.appendChild(restartButton);
+        respuestaProducto.appendChild(restartButton);
         restartButton.onclick = (e) => {
           e.preventDefault;
           location.reload();
@@ -152,7 +153,7 @@ botonSiguiente.onclick = (e) => {
         mainContainer.appendChild(respuestaProducto);
 
         productToUse.remove();
-        mainContainer.appendChild(restartButton);
+        respuestaProducto.appendChild(restartButton);
         restartButton.onclick = (e) => {
           e.preventDefault;
           location.reload();
@@ -165,7 +166,7 @@ botonSiguiente.onclick = (e) => {
         mainContainer.appendChild(respuestaProducto);
 
         productToUse.remove();
-        mainContainer.appendChild(restartButton);
+        respuestaProducto.appendChild(restartButton);
         restartButton.onclick = (e) => {
           e.preventDefault;
           location.reload();
@@ -197,7 +198,7 @@ botonSiguiente.onclick = (e) => {
           </p>
         </aside>`
 
-        mainContainer.appendChild(recipesShowing);
+        respuestaProducto.appendChild(recipesShowing);
         //nodo seleccion de receta
         let recipeInput = document.createElement("article");
         recipeInput.className = "data__inicial";
@@ -211,14 +212,13 @@ botonSiguiente.onclick = (e) => {
             Enviar
           </button>
         </form>`
-        mainContainer.appendChild(recipeInput);
+        respuestaProducto.appendChild(recipeInput);
         let recipeSelection = document.getElementById("recipeSelection");
         let buttonRecipe = document.getElementById("buttonRecipe");
         buttonRecipe.onclick = (e) => {
           e.preventDefault();
           localStorage.setItem("recetaElegida", recipeSelection.value);
-          recipeInput.remove();
-          recipesShowing.remove();
+          respuestaProducto.remove();
           let recipeAnswer = document.createElement("article");
           recipeAnswer.className = "data__inicial";
           recipeAnswer.id = "recipeAnswer";
@@ -250,7 +250,7 @@ botonSiguiente.onclick = (e) => {
             Enviar
             </button>
             </form>`
-          mainContainer.appendChild(proportion);
+          recipeAnswer.appendChild(proportion);
           let volumenPorPreparar = document.getElementById("ingresoProportion");
           let buttonProportion = document.getElementById("buttonProportion");
           buttonProportion.onclick = (e) => {
@@ -316,9 +316,9 @@ botonSiguiente.onclick = (e) => {
               default:
                 proportionAnswer.innerHTML = `<p class="label__input">La receta que seleccionaste es invalida, por favor refresca la pagina e intenta de nuevo.</p>`;
             };
+            recipeAnswer.remove();
             mainContainer.appendChild(proportionAnswer);
-            proportion.remove();
-            mainContainer.appendChild(restartButton);
+            proportionAnswer.appendChild(restartButton);
             restartButton.onclick = (e) => {
               e.preventDefault;
               location.reload();

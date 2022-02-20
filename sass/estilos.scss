@@ -661,9 +661,9 @@
   //recetario
   .recetario {
     margin: 3%;
-    min-height: calc(100vh - 11vw - 14vw);
+    min-height: calc(91vh - 11vw - 14vw);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
   
