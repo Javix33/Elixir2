@@ -11,6 +11,7 @@ NODONAME.innerHTML = `<form class="data__inicial" action="" method="POST">
           Ingresa tu nombre
         </label>
         <input id="userName" type="text" name="nombre" placeholder="Nombre completo" required>    
+        <input id="userAge" type="text" name="Edad" placeholder="Edad" required>  
       </form>`;
 //nodo Fecha
 let date = new Date();
@@ -90,6 +91,26 @@ PROPORTION.innerHTML = `<form id="PROPORTIONForm" action="POST" class="data__ini
 const PROPORTIONANSWER = document.createElement("article");
 PROPORTIONANSWER.className = "data__inicial";
 PROPORTIONANSWER.id = "PROPORTIONANSWER";
+//nodo calificar
+const NODOCALIFICACION = document.createElement("article");
+NODOCALIFICACION.className = "data__inicial";
+NODOCALIFICACION.id = "NODOCALIFICACION";
+NODOCALIFICACION.innerHTML = `<form id="calificacionForm" class="data__inicial" action="" method="POST">
+        <label class="label__input" for="calificación">
+          Califica tu experiencia utilizando este recetario con un número del 1 al 10, donde uno es pesima y 10 es excelente
+        </label>
+        <input id="Calificacion" type="text" name="Calificacion" placeholder="Calificación" required>    
+      </form>`;
+//nodo agradecimiento
+//nodo calificación
+const NODOAGRADECIMIENTO = document.createElement("article");
+NODOAGRADECIMIENTO.className = "data__inicial";
+NODOAGRADECIMIENTO.id = "NODOAGRADECIMIENTO";
+NODOAGRADECIMIENTO.innerHTML = `<form id="agradecimientoForm" class="data__inicial" action="" method="POST">
+        <label class="label__input" for="calificación">
+          Gracias por calificarnos, pulza "reiniciar recetario" para volver a empezar
+        </label>   
+      </form>`;
 //creacion de botones
 let buttonStart = document.createElement("button");
 buttonStart.className = "botonIngreso";
@@ -121,6 +142,7 @@ restartButton.onclick = (e) => {
   RESPUESTAPRODUCT.remove();
   restartButton.remove();
   PROPORTIONANSWER.remove();
+  NODOAGRADECIMIENTO.remove();
   MAINCONTAINER.appendChild(welcome);
   welcome.appendChild(buttonStart);
 };
@@ -134,61 +156,85 @@ let buttonPROPORTION = document.createElement("button");
 buttonPROPORTION.className = "botonIngreso";
 buttonPROPORTION.id = "buttonPROPORTION";
 buttonPROPORTION.innerHTML = `Enviar`;
+//boton calificar
+let buttonCalificar = document.createElement("button");
+buttonCalificar.className = "botonIngreso";
+buttonCalificar.id = "buttonCalificar";
+buttonCalificar.innerHTML = `Calificar recetario`;
+//boton enviar calificacion
+
+let buttonEnviarCalificación = document.createElement("button");
+buttonEnviarCalificación.className = "botonIngreso";
+buttonEnviarCalificación.id = "buttonEnviarCalificación";
+buttonEnviarCalificación.innerHTML = `Enviar`;
 
 //storage
 //nombre
-let nombreStorage = localStorage.getItem("nombre");
-console.log(nombreStorage)
-const VERIFICARNOMBRE = () => {
-  if (nombreStorage && nombreStorage !== undefined) {
-    NODONAME.remove();
-    let saludoWelcome = `Hola ${nombreStorage}, hoy es ${dayName},`;
-    //nodo de saludo
-    let saludo = document.createElement("article");
-    saludo.className = "data__inicial";
-    saludo.id = "userWelcome";
-    switch (today) {
-      case today = 0:
-        saludo.innerHTML = `<p id="saludoRespuesta">
-            ${saludoWelcome} quiza no es el mejor día para beber`;
-        break;
-      case today = 1:
-        saludo.innerHTML = `<p id="saludoRespuesta">
-            ${saludoWelcome} inicio de semana, ten cuidado con tu consumo.`;
-        break;
-      case today = 2:
-        saludo.innerHTML = `<p id="saludoRespuesta">
-            ${saludoWelcome} recupera energia, con moderación.`;
-        break;
-      case today = 3:
-        saludo.innerHTML = `<p id="saludoRespuesta">
-            ${saludoWelcome} ombligo de semana un par de copas ayudarán.`;
-        break;
-      case today = 4:
-        saludo.innerHTML = `<p id="saludoRespuesta">
-            ${saludoWelcome} ya casi es fin de semana, fuerza.`;
-        break;
-      case today = 5:
-        saludo.innerHTML = `<p id="saludoRespuesta">
-            ${saludoWelcome} es viernes y el cuerpo lo sabe, si tomas no conduzcas.`;
+let userStringify = localStorage.getItem("user");
 
-        break;
-      case today = 6:
-        saludo.innerHTML = `<p id="saludoRespuesta">
-            ${saludoWelcome} se nos fue la semana, tiempo de celebrar.`;
+//OPTIMIZACION ASIGNACION CONDICIONAL---------------
+let userStorage = JSON.parse(userStringify) || { nombre: "", edad: "" };
+//desestructuración de objeto--------------------------
+let { Nombre, Edad } = userStorage;
 
-        break;
-      default:
-        saludo.innerHTML = `<p id="saludoRespuesta">
-            ${saludoWelcome} no parece un mal dia para un poco de mezcal`;
+//funciones para ternario--------------
 
-    };
-    MAINCONTAINER.appendChild(saludo);
-    saludo.appendChild(buttonSaludoNext);
-  } else {
-    MAINCONTAINER.appendChild(NODONAME);
-    NODONAME.appendChild(buttonName);
+const FUNCIONIF = () => {
+  NODONAME.remove();
+  let saludoWelcome = `Hola ${Nombre}, hoy es ${dayName},`;
+  //nodo de saludo
+  let saludo = document.createElement("article");
+  saludo.className = "data__inicial";
+  saludo.id = "userWelcome";
+  switch (today) {
+    case today = 0:
+      saludo.innerHTML = `<p id="saludoRespuesta">
+        ${saludoWelcome} quiza no es el mejor día para beber`;
+      break;
+    case today = 1:
+      saludo.innerHTML = `<p id="saludoRespuesta">
+        ${saludoWelcome} inicio de semana, ten cuidado con tu consumo.`;
+      break;
+    case today = 2:
+      saludo.innerHTML = `<p id="saludoRespuesta">
+        ${saludoWelcome} recupera energia, con moderación.`;
+      break;
+    case today = 3:
+      saludo.innerHTML = `<p id="saludoRespuesta">
+        ${saludoWelcome} ombligo de semana un par de copas ayudarán.`;
+      break;
+    case today = 4:
+      saludo.innerHTML = `<p id="saludoRespuesta">
+        ${saludoWelcome} ya casi es fin de semana, fuerza.`;
+      break;
+    case today = 5:
+      saludo.innerHTML = `<p id="saludoRespuesta">
+        ${saludoWelcome} es viernes y el cuerpo lo sabe, si tomas no conduzcas.`;
+
+      break;
+    case today = 6:
+      saludo.innerHTML = `<p id="saludoRespuesta">
+        ${saludoWelcome} se nos fue la semana, tiempo de celebrar.`;
+
+      break;
+    default:
+      saludo.innerHTML = `<p id="saludoRespuesta">
+        ${saludoWelcome} no parece un mal dia para un poco de mezcal`;
+
   };
+  MAINCONTAINER.appendChild(saludo);
+  saludo.appendChild(buttonSaludoNext);
+};
+const FUNCIONELSE = () => {
+  MAINCONTAINER.appendChild(NODONAME);
+  NODONAME.appendChild(buttonName);
+};
+//verificacion storage
+const VERIFICARNOMBRE = () => {
+
+  //OPTIMIZACION OPERADOR TERNARIO--------------------
+
+  Nombre !== undefined ? FUNCIONIF() : FUNCIONELSE();
 };
 //funciones
 function calcularProporcion(recetaElegida, proporcion, recetaFinal) {
@@ -236,14 +282,21 @@ buttonStart.onclick = (e) => {
 };
 buttonName.onclick = (e) => {
   e.preventDefault();
-  let userName = document.getElementById("userName");
-  nombreStorage = localStorage.setItem("nombre", userName.value);
+  //operador OR
+  let userName = Nombre || document.getElementById("userName");
+  let userAge = document.getElementById("userAge");
+  let user = {
+    Nombre: userName.value,
+    Edad: userAge.value
+  };
+  let userForString = JSON.stringify(user);
+  userStorage = localStorage.setItem("user", userForString);
   NODONAME.remove();
   //nodo de saludo
   let saludo = document.createElement("article");
   saludo.className = "data__inicial";
   saludo.id = "userWelcome";
-  let saludoWelcome = `Hola ${userName.value}, hoy es ${dayName},`;
+  let saludoWelcome = `Hola ${user?.Nombre || "usuario invitado"}, hoy es ${dayName},`;
   switch (today) {
     case today = 0:
       saludo.innerHTML = `<p id="saludoRespuesta">
@@ -305,6 +358,7 @@ buttonProduct.onclick = (e) => {
     PRODUCTTOUSE.remove();
     MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
     RESPUESTAPRODUCT.appendChild(restartButton);
+    RESPUESTAPRODUCT.appendChild(buttonCalificar);
 
   } else if (userBebida == "maracuya") {
 
@@ -315,6 +369,7 @@ buttonProduct.onclick = (e) => {
     PRODUCTTOUSE.remove();
     MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
     RESPUESTAPRODUCT.appendChild(restartButton);
+    RESPUESTAPRODUCT.appendChild(buttonCalificar);
 
   } else if (userBebida == "lichi") {
 
@@ -325,6 +380,7 @@ buttonProduct.onclick = (e) => {
     PRODUCTTOUSE.remove();
     MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
     RESPUESTAPRODUCT.appendChild(restartButton);
+    RESPUESTAPRODUCT.appendChild(buttonCalificar);
   } else {
     RESPUESTAPRODUCT.innerHTML = `<p class="contestacion">
       Procedamos a preparar algo con tu Mezcal Espadin de Elixir.
@@ -387,7 +443,36 @@ buttonPROPORTION.onclick = (e) => {
   RECIPEANSWER.remove();
   MAINCONTAINER.appendChild(PROPORTIONANSWER);
   PROPORTIONANSWER.appendChild(restartButton);
+  PROPORTIONANSWER.appendChild(buttonCalificar);
 };
+buttonCalificar.onclick = (e) => {
+  e.preventDefault();
+  PROPORTIONANSWER.remove();
+  MAINCONTAINER.appendChild(NODOCALIFICACION);
+  let calificacionForm = document.getElementById("calificacionForm")
+  calificacionForm.appendChild(buttonEnviarCalificación);
+  RESPUESTAPRODUCT.remove();
+
+};
+buttonEnviarCalificación.onclick = (e) => {
+  e.preventDefault();
+  let calificacionDeUsuario = document.getElementById("Calificacion");
+  let userFromStorage = localStorage.getItem("user");
+  let user = JSON.parse(userFromStorage);
+  //OPTIMIZACIÓN SPREAD----------
+  let usuarioConCalificacion = {
+    ...user,
+    calificacion: calificacionDeUsuario.value
+  };
+  let usuarioConCalificacionStringify = JSON.stringify(usuarioConCalificacion);
+  localStorage.setItem("usuario con evaluación", usuarioConCalificacionStringify);
+  NODOCALIFICACION.remove();
+  MAINCONTAINER.appendChild(NODOAGRADECIMIENTO);
+  let agradecimientoForm = document.getElementById("agradecimientoForm");
+  agradecimientoForm.appendChild(restartButton);
+};
+
+
 
 /*  
   //nodo rondas
