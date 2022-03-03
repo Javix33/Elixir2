@@ -170,7 +170,7 @@ buttonEnviarCalificación.innerHTML = `Enviar`;
 
 //storage
 //nombre
-let userStringify = localStorage.getItem("user");
+let userStringify = sessionStorage.getItem("user");
 
 //OPTIMIZACION ASIGNACION CONDICIONAL---------------
 let userStorage = JSON.parse(userStringify) || { nombre: "", edad: "" };
@@ -290,7 +290,7 @@ buttonName.onclick = (e) => {
     Edad: userAge.value
   };
   let userForString = JSON.stringify(user);
-  userStorage = localStorage.setItem("user", userForString);
+  userStorage = sessionStorage.setItem("user", userForString);
   NODONAME.remove();
   //nodo de saludo
   let saludo = document.createElement("article");
@@ -333,6 +333,11 @@ buttonName.onclick = (e) => {
           ${saludoWelcome} no parece un mal dia para un poco de mezcal`;
 
   };
+  swal({
+    title: `${saludoWelcome}`,
+    icon: "success",
+    button: "Continuar"
+  });
   MAINCONTAINER.appendChild(saludo);
   saludo.appendChild(buttonSaludoNext);
 };
@@ -457,7 +462,7 @@ buttonCalificar.onclick = (e) => {
 buttonEnviarCalificación.onclick = (e) => {
   e.preventDefault();
   let calificacionDeUsuario = document.getElementById("Calificacion");
-  let userFromStorage = localStorage.getItem("user");
+  let userFromStorage = sessionStorage.getItem("user");
   let user = JSON.parse(userFromStorage);
   //OPTIMIZACIÓN SPREAD----------
   let usuarioConCalificacion = {
@@ -465,7 +470,7 @@ buttonEnviarCalificación.onclick = (e) => {
     calificacion: calificacionDeUsuario.value
   };
   let usuarioConCalificacionStringify = JSON.stringify(usuarioConCalificacion);
-  localStorage.setItem("usuario con evaluación", usuarioConCalificacionStringify);
+  sessionStorage.setItem("usuario con evaluación", usuarioConCalificacionStringify);
   NODOCALIFICACION.remove();
   MAINCONTAINER.appendChild(NODOAGRADECIMIENTO);
   let agradecimientoForm = document.getElementById("agradecimientoForm");
