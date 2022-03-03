@@ -97,7 +97,7 @@ NODOCALIFICACION.className = "data__inicial";
 NODOCALIFICACION.id = "NODOCALIFICACION";
 NODOCALIFICACION.innerHTML = `<form id="calificacionForm" class="data__inicial" action="" method="POST">
         <label class="label__input" for="calificación">
-          Califica tu experiencia utilizando este recetario con un número del 1 al 10, donde uno es pesima y 10 es excelente
+          Califica tu experiencia utilizando este recetario con un número del 1 al 10, donde 1 es pesima y 10 es excelente
         </label>
         <input id="Calificacion" type="text" name="Calificacion" placeholder="Calificación" required>    
       </form>`;
@@ -106,11 +106,10 @@ NODOCALIFICACION.innerHTML = `<form id="calificacionForm" class="data__inicial" 
 const NODOAGRADECIMIENTO = document.createElement("article");
 NODOAGRADECIMIENTO.className = "data__inicial";
 NODOAGRADECIMIENTO.id = "NODOAGRADECIMIENTO";
-NODOAGRADECIMIENTO.innerHTML = `<form id="agradecimientoForm" class="data__inicial" action="" method="POST">
+NODOAGRADECIMIENTO.innerHTML = `
         <label class="label__input" for="calificación">
-          Gracias por calificarnos, pulza "reiniciar recetario" para volver a empezar
-        </label>   
-      </form>`;
+          Gracias por calificarnos, pulsa "reiniciar recetario" para volver a empezar
+        </label>`;
 //creacion de botones
 let buttonStart = document.createElement("button");
 buttonStart.className = "botonIngreso";
@@ -121,11 +120,6 @@ let buttonName = document.createElement("button");
 buttonName.className = "botonIngreso";
 buttonName.id = "buttonName";
 buttonName.innerHTML = `Enviar`;
-//button saludoNext
-let buttonSaludoNext = document.createElement("button");
-buttonSaludoNext.className = "botonIngreso";
-buttonSaludoNext.id = "buttonSaludoNext";
-buttonSaludoNext.innerHTML = `Siguiente`;
 //boton producto
 let buttonProduct = document.createElement("button");
 buttonProduct.className = "botonIngreso";
@@ -143,6 +137,7 @@ restartButton.onclick = (e) => {
   restartButton.remove();
   PROPORTIONANSWER.remove();
   NODOAGRADECIMIENTO.remove();
+  buttonCalificar.remove();
   MAINCONTAINER.appendChild(welcome);
   welcome.appendChild(buttonStart);
 };
@@ -222,8 +217,17 @@ const FUNCIONIF = () => {
         ${saludoWelcome} no parece un mal dia para un poco de mezcal`;
 
   };
-  MAINCONTAINER.appendChild(saludo);
-  saludo.appendChild(buttonSaludoNext);
+
+  swal({
+      title: `${saludo.innerText}`,
+      icon: "success",
+      button: "Continuar"
+    })
+    .then(() => {
+      MAINCONTAINER.appendChild(PRODUCTTOUSE);
+      let productForm = document.getElementById("productForm");
+      productForm.appendChild(buttonProduct);
+    });
 };
 const FUNCIONELSE = () => {
   MAINCONTAINER.appendChild(NODONAME);
@@ -334,22 +338,17 @@ buttonName.onclick = (e) => {
 
   };
   swal({
-    title: `${saludoWelcome}`,
-    icon: "success",
-    button: "Continuar"
-  });
-  MAINCONTAINER.appendChild(saludo);
-  saludo.appendChild(buttonSaludoNext);
+      title: `${saludo.innerText}`,
+      icon: "success",
+      button: "Continuar"
+    })
+    .then(() => {
+      MAINCONTAINER.appendChild(PRODUCTTOUSE);
+      let productForm = document.getElementById("productForm");
+      productForm.appendChild(buttonProduct);
+    });
 };
-buttonSaludoNext.onclick = (e) => {
-  e.preventDefault();
-  let saludo = document.getElementById("userWelcome");
-  saludo.remove();
-  MAINCONTAINER.appendChild(PRODUCTTOUSE);
-  let productForm = document.getElementById("productForm");
-  productForm.appendChild(buttonProduct);
 
-};
 buttonProduct.onclick = (e) => {
   e.preventDefault();
   let productInput = document.getElementById("seleccionProducto");
@@ -359,52 +358,83 @@ buttonProduct.onclick = (e) => {
     RESPUESTAPRODUCT.innerHTML = `<p class="contestacion">
       Solo añade hielo, algunos trozos de fruta y disfruta de tu Mezcal Elixir sabor Naranja.
     </p>`;
-    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
-    PRODUCTTOUSE.remove();
-    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
-    RESPUESTAPRODUCT.appendChild(restartButton);
-    RESPUESTAPRODUCT.appendChild(buttonCalificar);
+    swal({
+        title: `${RESPUESTAPRODUCT.innerText}`,
+        icon: "success",
+        button: "Continuar"
+      })
+      .then(() => {
+
+        PRODUCTTOUSE.remove();
+        MAINCONTAINER.appendChild(restartButton);
+        MAINCONTAINER.appendChild(buttonCalificar);
+
+      });
 
   } else if (userBebida == "maracuya") {
 
     RESPUESTAPRODUCT.innerHTML = `<p class="contestacion">
       Solo añade hielo, algunos trozos de fruta y disfruta de tu Mezcal Elixir sabor Maracuya.
     </p>`;
-    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
-    PRODUCTTOUSE.remove();
-    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
-    RESPUESTAPRODUCT.appendChild(restartButton);
-    RESPUESTAPRODUCT.appendChild(buttonCalificar);
+    swal({
+        title: `${RESPUESTAPRODUCT.innerText}`,
+        icon: "success",
+        button: "Continuar"
+      })
+      .then(() => {
+
+        PRODUCTTOUSE.remove();
+        MAINCONTAINER.appendChild(restartButton);
+        MAINCONTAINER.appendChild(buttonCalificar);
+
+      });
+
 
   } else if (userBebida == "lichi") {
-
     RESPUESTAPRODUCT.innerHTML = `<p class="contestacion">
       Solo añade hielo, algunos trozos de fruta y disfruta de tu Mezcal Elixir sabor Lichi.
     </p>`;
-    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
-    PRODUCTTOUSE.remove();
-    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
-    RESPUESTAPRODUCT.appendChild(restartButton);
-    RESPUESTAPRODUCT.appendChild(buttonCalificar);
+    swal({
+        title: `${RESPUESTAPRODUCT.innerText}`,
+        icon: "success",
+        button: "Continuar"
+      })
+      .then(() => {
+
+        PRODUCTTOUSE.remove();
+        MAINCONTAINER.appendChild(restartButton);
+        MAINCONTAINER.appendChild(buttonCalificar);
+
+      });
+
   } else {
     RESPUESTAPRODUCT.innerHTML = `<p class="contestacion">
       Procedamos a preparar algo con tu Mezcal Espadin de Elixir.
     </p>`;
+    swal({
+        title: `${RESPUESTAPRODUCT.innerText}`,
+        icon: "success",
+        button: "Continuar"
+      })
+      .then(() => {
 
-    PRODUCTTOUSE.remove();
-    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
-    MAINCONTAINER.appendChild(RESPUESTAPRODUCT);
-    RESPUESTAPRODUCT.appendChild(RECIPESSHOWING);
-    RESPUESTAPRODUCT.appendChild(RECIPEINPUT);
-    let recipeForm = document.getElementById("recipeForm");
-    recipeForm.appendChild(buttonRecipe);
+        PRODUCTTOUSE.remove();
+        MAINCONTAINER.appendChild(RECIPESSHOWING);
+        RECIPESSHOWING.appendChild(RECIPEINPUT);
+        let recipeForm = document.getElementById("recipeForm");
+        recipeForm.appendChild(buttonRecipe);
+
+      });
+
+
   };
+
 };
 let recipeSelection;
 buttonRecipe.onclick = (e) => {
   e.preventDefault();
   recipeSelection = document.getElementById("recipeSelection");
-  RESPUESTAPRODUCT.remove();
+
   if (recipeSelection.value == 1) {
     RECIPEANSWER.innerHTML = `<p class="label__input" id="RECIPEANSWER">
       Elegiste la receta número 1 "mezcalita de limon"
@@ -418,11 +448,19 @@ buttonRecipe.onclick = (e) => {
       Elegiste la receta número 3 "mezcalita de tamarindo"
     </p>`
   };
-  MAINCONTAINER.appendChild(RECIPEANSWER);
-  RECIPEANSWER.appendChild(PROPORTION);
-  let PROPORTIONForm = document.getElementById("PROPORTIONForm");
-  PROPORTIONForm.appendChild(buttonPROPORTION);
+  swal({
+      title: `${RECIPEANSWER.innerText}`,
+      icon: "success",
+      button: "Continuar"
+    })
+    .then(() => {
+      RECIPESSHOWING.remove();
+      MAINCONTAINER.appendChild(PROPORTION);
+      let PROPORTIONForm = document.getElementById("PROPORTIONForm");
+      PROPORTIONForm.appendChild(buttonPROPORTION);
+    });
 };
+
 buttonPROPORTION.onclick = (e) => {
   e.preventDefault();
   let mililitrosPorPreparar = document.getElementById("ingresoPROPORTION");
@@ -445,20 +483,29 @@ buttonPROPORTION.onclick = (e) => {
     default:
       PROPORTIONANSWER.innerHTML = `<p class="label__input">La receta que seleccionaste es invalida, por favor refresca la pagina e intenta de nuevo.</p>`;
   };
-  RECIPEANSWER.remove();
-  MAINCONTAINER.appendChild(PROPORTIONANSWER);
-  PROPORTIONANSWER.appendChild(restartButton);
-  PROPORTIONANSWER.appendChild(buttonCalificar);
+  swal({
+      title: `${PROPORTIONANSWER.innerText}`,
+      icon: "success",
+      button: "Continuar"
+    })
+    .then(() => {
+
+      PROPORTION.remove();
+      MAINCONTAINER.appendChild(restartButton);
+      MAINCONTAINER.appendChild(buttonCalificar);
+    });
 };
+
 buttonCalificar.onclick = (e) => {
   e.preventDefault();
-  PROPORTIONANSWER.remove();
+  RESPUESTAPRODUCT.remove();
+  restartButton.remove();
+  buttonCalificar.remove();
   MAINCONTAINER.appendChild(NODOCALIFICACION);
   let calificacionForm = document.getElementById("calificacionForm")
   calificacionForm.appendChild(buttonEnviarCalificación);
-  RESPUESTAPRODUCT.remove();
-
 };
+
 buttonEnviarCalificación.onclick = (e) => {
   e.preventDefault();
   let calificacionDeUsuario = document.getElementById("Calificacion");
@@ -472,9 +519,14 @@ buttonEnviarCalificación.onclick = (e) => {
   let usuarioConCalificacionStringify = JSON.stringify(usuarioConCalificacion);
   sessionStorage.setItem("usuario con evaluación", usuarioConCalificacionStringify);
   NODOCALIFICACION.remove();
-  MAINCONTAINER.appendChild(NODOAGRADECIMIENTO);
-  let agradecimientoForm = document.getElementById("agradecimientoForm");
-  agradecimientoForm.appendChild(restartButton);
+  swal({
+      title: `${NODOAGRADECIMIENTO.innerText}`,
+      icon: "success",
+      button: "Continuar"
+    })
+    .then(() => {
+      MAINCONTAINER.appendChild(restartButton);
+    });
 };
 
 
