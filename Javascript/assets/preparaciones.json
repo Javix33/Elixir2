@@ -1,0 +1,29 @@
+{
+  "Recipes": {
+    "Jamaica": {
+      "1": "Pon a hervir el agua con las flores de jamaica por 10 minutos",
+      "2": "Apaga el fuego y deja infusionar por 20 minutos",
+      "3": "Pasa por un colador para retirar las flores y conserva solamente el agua",
+      "4": "Deja enfriar por 30 minutos en el refrigerador",
+      "5": "Coloca hielo en un recipiente, agrega el mezcal y la miel",
+      "6": "Agrega el agua infusionada con jamaica y mezcla",
+      "7": "Disfruta de tu deliciosa mezcalita de jamaica"
+    },
+    "Limon": {
+      "1": "Licua el agua, el jugo de limon y los pepinos",
+      "2": "Deja enfriar en el refrigerador por 30 minutos",
+      "3": "Coloca hielo en un recipiente y añade el mezcal y la miel",
+      "4": "Agrega la mezcla de pepino y juego de limon",
+      "5": "Disfruta de esta fresca Mezcalita de pepino con limon"
+    },
+    "Tamarindo": {
+      "1": "Pon a hervir el agua con el tamarindo por 10 minutos",
+      "2": "Apaga el fuego y deja infusionar por 20 minutos",
+      "3": "Licua el agua infusionada y el tamarindo",
+      "4": "Deja enfriar por 30 minutos en el refrigerador",
+      "5": "Coloca hielo en un recipiente, agrega el mezcal y la miel",
+      "6": "Agrega el agua infusionada con jamaica y mezcla",
+      "7": "Disfruta de tu deliciosa mezcalita de jamaica"
+    }
+  }
+}
