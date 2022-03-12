@@ -1,4 +1,8 @@
-//nodo principal
+//variables globales
+let recipeIndex;
+//url json
+const URL_JSON = "../Javascript/assets/preparaciones.json"
+  //nodo principal
 const MAINCONTAINER = document.getElementById("main");
 //nodo welcome
 let welcome = document.getElementById("welcome");
@@ -81,16 +85,20 @@ RECIPEANSWER.id = "RECIPEANSWER";
 const PROPORTION = document.createElement("article");
 PROPORTION.className = "data__inicial";
 PROPORTION.id = "PROPORTIONInput";
-PROPORTION.innerHTML = `<form id="PROPORTIONForm" action="POST" class="data__inicial">
+PROPORTION.innerHTML = `
   <label class="label__input" for="volumen">
   ¿Qué cantidad en mililitros de esta receta deseas preparar?
   </label>
   <input id="ingresoPROPORTION" placeholder="ingresa cantidad en ml." type="text" name="volumen" required>
-  </form>`;
+  `;
 //nodo respuesta proporcion
 const PROPORTIONANSWER = document.createElement("article");
 PROPORTIONANSWER.className = "data__inicial";
 PROPORTIONANSWER.id = "PROPORTIONANSWER";
+//nodo respuesta preparacion------Fetch
+const PROCEDUREANSWER = document.createElement("article");
+PROCEDUREANSWER.className = "data__inicial";
+PROCEDUREANSWER.id = "PROCEDUREANSWER";
 //nodo calificar
 const NODOCALIFICACION = document.createElement("article");
 NODOCALIFICACION.className = "data__inicial";
@@ -102,7 +110,6 @@ NODOCALIFICACION.innerHTML = `<form id="calificacionForm" class="data__inicial" 
         <input id="Calificacion" type="text" name="Calificacion" placeholder="Calificación" required>    
       </form>`;
 //nodo agradecimiento
-//nodo calificación
 const NODOAGRADECIMIENTO = document.createElement("article");
 NODOAGRADECIMIENTO.className = "data__inicial";
 NODOAGRADECIMIENTO.id = "NODOAGRADECIMIENTO";
@@ -133,6 +140,8 @@ restartButton.innerHTML = `<button id="buttonName" class="botonIngreso" type="su
         Reiniciar recetario
       </button>`;
 restartButton.onclick = (e) => {
+
+  PROCEDUREANSWER.remove();
   RESPUESTAPRODUCT.remove();
   restartButton.remove();
   PROPORTIONANSWER.remove();
@@ -151,6 +160,11 @@ let buttonPROPORTION = document.createElement("button");
 buttonPROPORTION.className = "botonIngreso";
 buttonPROPORTION.id = "buttonPROPORTION";
 buttonPROPORTION.innerHTML = `Enviar`;
+//boton procedimiento
+let buttonProcedure = document.createElement("button");
+buttonProcedure.className = "botonIngreso";
+buttonProcedure.id = "buttonProcedure";
+buttonProcedure.innerHTML = `Obtener preparación`;
 //boton calificar
 let buttonCalificar = document.createElement("button");
 buttonCalificar.className = "botonIngreso";
@@ -237,7 +251,6 @@ const FUNCIONELSE = () => {
 const VERIFICARNOMBRE = () => {
 
   //OPTIMIZACION OPERADOR TERNARIO--------------------
-
   Nombre !== undefined ? FUNCIONIF() : FUNCIONELSE();
 };
 //funciones
@@ -246,6 +259,10 @@ function calcularProporcion(recetaElegida, proporcion, recetaFinal) {
     resultado = (ingrediente = ingrediente * proporcion);
     recetaFinal.push(resultado);
   };
+};
+//*********funcion fetch**********
+const OBTAIN_PROCEDURES = () => {
+  return fetch(URL_JSON);
 };
 //arrays recetas
 const RECIPELIMON = [
@@ -276,14 +293,15 @@ let recetaFinal = [];
 
 
 
+
 //inicio app
 
 welcome.appendChild(buttonStart);
-buttonStart.onclick = (e) => {
-  e.preventDefault();
-  welcome.remove();
+buttonStart.onclick = () => {
   VERIFICARNOMBRE();
+  welcome.remove();
 };
+
 buttonName.onclick = (e) => {
   e.preventDefault();
   //operador OR
@@ -447,6 +465,9 @@ buttonRecipe.onclick = (e) => {
     RECIPEANSWER.innerHTML = `<p class="label__input"       id="RECIPEANSWER">
       Elegiste la receta número 3 "mezcalita de tamarindo"
     </p>`
+  } else {
+    RECIPEANSWER.innerHTML = `<p class="label__input" id="RECIPEANSWER">
+  Ingresaste un número que no corresponde a ninguna receta, por favor recarga la pagina e intentalo de nuevo.</p>`
   };
   swal({
       title: `${RECIPEANSWER.innerText}`,
@@ -456,15 +477,14 @@ buttonRecipe.onclick = (e) => {
     .then(() => {
       RECIPESSHOWING.remove();
       MAINCONTAINER.appendChild(PROPORTION);
-      let PROPORTIONForm = document.getElementById("PROPORTIONForm");
-      PROPORTIONForm.appendChild(buttonPROPORTION);
+      PROPORTION.appendChild(buttonPROPORTION);
     });
 };
 
 buttonPROPORTION.onclick = (e) => {
   e.preventDefault();
   let mililitrosPorPreparar = document.getElementById("ingresoPROPORTION");
-  let recipeIndex = recipeSelection.value;
+  recipeIndex = recipeSelection.value;
   recipeIndex = parseInt(recipeIndex) - 1;
   let recetaElegida = RECIPES[recipeIndex];
   let volumen = parseInt(mililitrosPorPreparar.value) / 1000;
@@ -489,15 +509,167 @@ buttonPROPORTION.onclick = (e) => {
       button: "Continuar"
     })
     .then(() => {
+      switch (recipeIndex) {
+        case 0:
+          PROCEDUREANSWER.innerHTML = `<p class="label__input">Para preparar la mezcalita de limon necesitaras seguir estas instrucciones </p>`;
+          break;
 
+        case 1:
+          PROCEDUREANSWER.innerHTML = `<p class="label__input">Para preparar la mezcalita de jamaica necesitaras seguir estas instrucciones </p>`;
+          break;
+        case 2:
+          PROCEDUREANSWER.innerHTML = `<p class="label__input">Para preparar la mezcalita de tamarindo necesitaras seguir estas instrucciones </p>`;
+      };
       PROPORTION.remove();
-      MAINCONTAINER.appendChild(restartButton);
-      MAINCONTAINER.appendChild(buttonCalificar);
+      MAINCONTAINER.appendChild(PROCEDUREANSWER);
+      PROCEDUREANSWER.appendChild(buttonProcedure);
     });
 };
+buttonProcedure.onclick = () => {
+  //***********funcion del fetch********
+  OBTAIN_PROCEDURES()
+    .then(resultado => resultado.json())
+    .then((resultado) => { localStorage.setItem("recipes", JSON.stringify(resultado.Recipes)) })
+  let procedimientos = localStorage.getItem("recipes");
+  procedimientos = JSON.parse(procedimientos);
+  let procedimientoRecetaElegida;
+  console.log(recipeIndex)
+  switch (recipeIndex) {
+    case 0:
+      procedimientoRecetaElegida = procedimientos.Limon;
+      PROCEDUREANSWER.innerHTML = `<h2 class="elixir__contenido__titulo"> 
+        Paso 1
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["1"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 2
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["2"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 3
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["3"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 4
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["4"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 5
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["5"]};
+      </p>
+    `;
+      break;
 
-buttonCalificar.onclick = (e) => {
-  e.preventDefault();
+    case 1:
+      procedimientoRecetaElegida = procedimientos.Jamaica;
+      PROCEDUREANSWER.innerHTML = `
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 1
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["1"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 2
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["2"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 3
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["3"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 4
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["4"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 5
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["5"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 6
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["6"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 7
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["7"]};
+      </p>`;
+
+      break;
+    case 2:
+      procedimientoRecetaElegida = procedimientos.Tamarindo;
+      PROCEDUREANSWER.innerHTML = `
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 1
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["1"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 2
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["2"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 3
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["3"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 4
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["4"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 5
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["5"]};
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 6
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["6"]}
+      </p>
+      <h2 class="elixir__contenido__titulo"> 
+        Paso 7
+      </h2>
+      <p class="contestacion">
+      ${procedimientoRecetaElegida["7"]}
+      </p>`;
+  };
+  PROCEDUREANSWER.appendChild(restartButton);
+  PROCEDUREANSWER.appendChild(buttonCalificar);
+};
+
+
+buttonCalificar.onclick = () => {
+  PROCEDUREANSWER.remove();
   RESPUESTAPRODUCT.remove();
   restartButton.remove();
   buttonCalificar.remove();
